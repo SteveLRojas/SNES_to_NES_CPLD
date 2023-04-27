@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name "Dergan")(type "KiCad")(uri "${KIPRJMOD}/Dergan.kicad_sym")(options "")(descr ""))
+)
