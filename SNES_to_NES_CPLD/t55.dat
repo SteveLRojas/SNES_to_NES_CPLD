@@ -1,0 +1,1404 @@
+assert111.........
+name = ddddddd..
+assert333.........
+NDEBUG is defined
+__STDC__ is defined
+__MSVC__ is NOT defined
+XPLA_BORLANDC is NOT defined
+
+---------------------
+|  D E F A U L T S  |
+---------------------
+max_pt=28, min_pt=3
+max_fi=32, min_fi=4
+
+-----------------
+|  H E A D E R  |
+-----------------
+#$ MODULE SNES_to_NES
+#$ PINS 4 "clk":1 "nes_clk":35 "nes_latch":34 "snes_button<0>":4 
+#$ PINS 3 "snes_button<10>":27 "snes_button<11>":28 "snes_button<1>":5 
+#$ PINS 3 "snes_button<2>":6 "snes_button<3>":7 "snes_button<4>":8 
+#$ PINS 3 "snes_button<5>":9 "snes_button<6>":10 "snes_button<7>":24 
+#$ PINS 3 "snes_button<8>":25 "snes_button<9>":26 "nes_data_q":36 
+#$ NODES 4 "nes_shift<0>" "nes_shift<1>" "nes_shift<2>" "nes_shift<3>" 
+#$ NODES 4 "nes_shift<4>" "nes_shift<5>" "nes_shift<6>" "nes_shift<7>" 
+#$ NODES 4 "snes_button_s<7>" "nes_latch_s" "prev_nes_latch" "timer<0>" 
+#$ NODES 5 "timer<19>" "nes_clk_s" "timer<10>" "timer<11>" "timer<12>" 
+#$ NODES 5 "timer<13>" "timer<14>" "timer<15>" "timer<16>" "timer<17>" 
+#$ NODES 6 "timer<18>" "timer<1>" "timer<2>" "timer<3>" "timer<4>" "timer<5>" 
+#$ NODES 5 "timer<6>" "timer<7>" "timer<8>" "timer<9>" "ab_mask<0>" 
+#$ NODES 4 "snes_button_s<9>" "ab_mask<1>" "snes_button_s<1>" "prev_nes_clk" 
+#$ NODES 3 "snes_button_s<0>" "snes_button_s<10>" "snes_button_s<11>" 
+#$ NODES 3 "snes_button_s<2>" "snes_button_s<3>" "snes_button_s<4>" 
+#$ NODES 3 "snes_button_s<5>" "snes_button_s<6>" "snes_button_s<8>" 
+#$ NODES 1 "N_PZ_255"'co' 
+
+--------------------------------------
+|  P I N    T a b l e    [count=63]  |
+--------------------------------------
+ timer<6> nes_shift<6> timer<10> nes_clk snes_button_s<10> timer<3> timer<13> 
+ snes_button<11> snes_button_s<0> timer<0> timer<16> snes_button_s<3> timer<19> 
+ snes_button_s<6> snes_button<2> snes_button<5> ab_mask<1> snes_button_s<9> 
+ snes_button<8> prev_nes_clk nes_shift<1> timer<8> nes_shift<4> nes_data_q timer<5> 
+ nes_shift<7> nes_latch timer<11> snes_button_s<11> timer<14> timer<2> snes_button_s<1> 
+ timer<17> nes_clk_s snes_button_s<4> snes_button<0> N_PZ_255 snes_button<3> 
+ snes_button_s<7> prev_nes_latch snes_button<6> snes_button<9> nes_shift<2> timer<7> 
+ nes_shift<5> timer<4> timer<12> clk snes_button<10> nes_latch_s timer<15> timer<1> 
+ snes_button_s<2> timer<18> snes_button_s<5> snes_button<1> snes_button_s<8> 
+ snes_button<4> ab_mask<0> snes_button<7> nes_shift<0> timer<9> nes_shift<3>
+
+------------------------------------------
+|  P I N    E q n l i s t    [count=16]  |
+------------------------------------------
+clk (fi=0): 
+nes_clk (fi=0): 
+nes_latch (fi=0): 
+snes_button<0> (fi=0): 
+snes_button<10> (fi=0): 
+snes_button<11> (fi=0): 
+snes_button<1> (fi=0): 
+snes_button<2> (fi=0): 
+snes_button<3> (fi=0): 
+snes_button<4> (fi=0): 
+snes_button<5> (fi=0): 
+snes_button<6> (fi=0): 
+snes_button<7> (fi=0): 
+snes_button<8> (fi=0): 
+snes_button<9> (fi=0): 
+nes_data_q (fi=2): (nes_data_q.D/N_PZ_119, net=SNES_to_NES) (nes_data_q.CLK/N_PZ_120, net=SNES_to_NES) 
+
+--------------------------------------------
+|  N O D E    E q n l i s t    [count=47]  |
+--------------------------------------------
+nes_shift<0> (fi=9): nes_shift<0>.CLK/N_PZ_1 nes_shift<0>.D/N_PZ_227 
+nes_shift<1> (fi=9): nes_shift<1>.CLK/N_PZ_4 nes_shift<1>.D/N_PZ_228 
+nes_shift<2> (fi=7): nes_shift<2>.CLK/N_PZ_7 nes_shift<2>.T/N_PZ_181 
+nes_shift<3> (fi=7): nes_shift<3>.CLK/N_PZ_10 nes_shift<3>.T/N_PZ_182 
+nes_shift<4> (fi=7): nes_shift<4>.CLK/N_PZ_13 nes_shift<4>.T/N_PZ_183 
+nes_shift<5> (fi=7): nes_shift<5>.CLK/N_PZ_16 nes_shift<5>.T/N_PZ_184 
+nes_shift<6> (fi=7): nes_shift<6>.CLK/N_PZ_19 nes_shift<6>.T/N_PZ_185 
+nes_shift<7> (fi=6): nes_shift<7>.CLK/N_PZ_22 nes_shift<7>.T/N_PZ_187 
+snes_button_s<7> (fi=2): snes_button_s<7>.D/N_PZ_113 snes_button_s<7>.CLK/N_PZ_114 
+nes_latch_s (fi=2): nes_latch_s.D/N_PZ_31 nes_latch_s.CLK/N_PZ_32 
+prev_nes_latch (fi=2): prev_nes_latch.D/N_PZ_93 prev_nes_latch.CLK/N_PZ_94 
+timer<0> (fi=1): timer<0>.CLK/N_PZ_25 timer<0>.T/N_PZ_140 
+timer<19> (fi=20): timer<19>.CLK/N_PZ_28 timer<19>.T/N_PZ_160 
+nes_clk_s (fi=2): nes_clk_s.D/N_PZ_29 nes_clk_s.CLK/N_PZ_30 
+timer<10> (fi=11): timer<10>.CLK/N_PZ_35 timer<10>.T/N_PZ_161 
+timer<11> (fi=12): timer<11>.CLK/N_PZ_38 timer<11>.T/N_PZ_162 
+timer<12> (fi=13): timer<12>.CLK/N_PZ_41 timer<12>.T/N_PZ_163 
+timer<13> (fi=14): timer<13>.CLK/N_PZ_44 timer<13>.T/N_PZ_164 
+timer<14> (fi=15): timer<14>.CLK/N_PZ_47 timer<14>.T/N_PZ_165 
+timer<15> (fi=16): timer<15>.CLK/N_PZ_50 timer<15>.T/N_PZ_166 
+timer<16> (fi=17): timer<16>.CLK/N_PZ_53 timer<16>.T/N_PZ_167 
+timer<17> (fi=18): timer<17>.CLK/N_PZ_56 timer<17>.T/N_PZ_168 
+timer<18> (fi=19): timer<18>.CLK/N_PZ_59 timer<18>.T/N_PZ_169 
+timer<1> (fi=2): timer<1>.CLK/N_PZ_62 timer<1>.T/N_PZ_170 
+timer<2> (fi=3): timer<2>.CLK/N_PZ_65 timer<2>.T/N_PZ_171 
+timer<3> (fi=4): timer<3>.CLK/N_PZ_68 timer<3>.T/N_PZ_172 
+timer<4> (fi=5): timer<4>.CLK/N_PZ_71 timer<4>.T/N_PZ_173 
+timer<5> (fi=6): timer<5>.CLK/N_PZ_74 timer<5>.T/N_PZ_174 
+timer<6> (fi=7): timer<6>.CLK/N_PZ_77 timer<6>.T/N_PZ_175 
+timer<7> (fi=8): timer<7>.CLK/N_PZ_80 timer<7>.T/N_PZ_176 
+timer<8> (fi=9): timer<8>.CLK/N_PZ_83 timer<8>.T/N_PZ_177 
+timer<9> (fi=10): timer<9>.CLK/N_PZ_86 timer<9>.T/N_PZ_178 
+ab_mask<0> (fi=3): ab_mask<0>.D/N_PZ_87 ab_mask<0>.CLK/N_PZ_88 
+snes_button_s<9> (fi=2): snes_button_s<9>.D/N_PZ_117 snes_button_s<9>.CLK/N_PZ_118 
+ab_mask<1> (fi=3): ab_mask<1>.D/N_PZ_89 ab_mask<1>.CLK/N_PZ_90 
+snes_button_s<1> (fi=2): snes_button_s<1>.D/N_PZ_101 snes_button_s<1>.CLK/N_PZ_102 
+prev_nes_clk (fi=2): prev_nes_clk.D/N_PZ_91 prev_nes_clk.CLK/N_PZ_92 
+snes_button_s<0> (fi=2): snes_button_s<0>.D/N_PZ_95 snes_button_s<0>.CLK/N_PZ_96 
+snes_button_s<10> (fi=2): snes_button_s<10>.D/N_PZ_97 snes_button_s<10>.CLK/N_PZ_98 
+snes_button_s<11> (fi=2): snes_button_s<11>.D/N_PZ_99 snes_button_s<11>.CLK/N_PZ_100 
+snes_button_s<2> (fi=2): snes_button_s<2>.D/N_PZ_103 snes_button_s<2>.CLK/N_PZ_104 
+snes_button_s<3> (fi=2): snes_button_s<3>.D/N_PZ_105 snes_button_s<3>.CLK/N_PZ_106 
+snes_button_s<4> (fi=2): snes_button_s<4>.D/N_PZ_107 snes_button_s<4>.CLK/N_PZ_108 
+snes_button_s<5> (fi=2): snes_button_s<5>.D/N_PZ_109 snes_button_s<5>.CLK/N_PZ_110 
+snes_button_s<6> (fi=2): snes_button_s<6>.D/N_PZ_111 snes_button_s<6>.CLK/N_PZ_112 
+snes_button_s<8> (fi=2): snes_button_s<8>.D/N_PZ_115 snes_button_s<8>.CLK/N_PZ_116 
+N_PZ_255 (fi=2): N_PZ_255 
+
+---------------------------------
+|  D a t a   S t r u c t u r e  |
+---------------------------------
+PI ( 61) =  clk nes_clk nes_latch snes_button<0> snes_button<10> snes_button<11> 
+            snes_button<1> snes_button<2> snes_button<3> snes_button<4> snes_button<5> 
+            snes_button<6> snes_button<7> snes_button<8> snes_button<9> nes_shift<0>.Q 
+            nes_shift<1>.Q nes_shift<2>.Q nes_shift<3>.Q nes_shift<4>.Q nes_shift<5>.Q 
+            nes_shift<6>.Q nes_shift<7>.Q timer<0>.Q nes_clk_s.Q nes_latch_s.Q 
+            ab_mask<0>.Q ab_mask<1>.Q prev_nes_clk.Q prev_nes_latch.Q 
+            snes_button_s<0>.Q snes_button_s<10>.Q snes_button_s<11>.Q 
+            snes_button_s<1>.Q snes_button_s<2>.Q snes_button_s<3>.Q snes_button_s<4>.Q 
+            snes_button_s<5>.Q snes_button_s<6>.Q snes_button_s<7>.Q snes_button_s<8>.Q 
+            snes_button_s<9>.Q timer<19>.Q timer<10>.Q timer<11>.Q timer<12>.Q 
+            timer<13>.Q timer<14>.Q timer<15>.Q timer<16>.Q timer<17>.Q timer<18>.Q 
+            timer<1>.Q timer<2>.Q timer<3>.Q timer<4>.Q timer<5>.Q timer<6>.Q 
+            timer<7>.Q timer<8>.Q timer<9>.Q
+
+PO ( 94) =  nes_shift<0>.CLK nes_shift<1>.CLK nes_shift<2>.CLK nes_shift<3>.CLK 
+            nes_shift<4>.CLK nes_shift<5>.CLK nes_shift<6>.CLK nes_shift<7>.CLK 
+            timer<0>.CLK timer<19>.CLK nes_clk_s.D nes_clk_s.CLK nes_latch_s.D 
+            nes_latch_s.CLK timer<10>.CLK timer<11>.CLK timer<12>.CLK timer<13>.CLK 
+            timer<14>.CLK timer<15>.CLK timer<16>.CLK timer<17>.CLK timer<18>.CLK 
+            timer<1>.CLK timer<2>.CLK timer<3>.CLK timer<4>.CLK timer<5>.CLK 
+            timer<6>.CLK timer<7>.CLK timer<8>.CLK timer<9>.CLK ab_mask<0>.D 
+            ab_mask<0>.CLK ab_mask<1>.D ab_mask<1>.CLK prev_nes_clk.D prev_nes_clk.CLK 
+            prev_nes_latch.D prev_nes_latch.CLK snes_button_s<0>.D snes_button_s<0>.CLK 
+            snes_button_s<10>.D snes_button_s<10>.CLK snes_button_s<11>.D 
+            snes_button_s<11>.CLK snes_button_s<1>.D snes_button_s<1>.CLK 
+            snes_button_s<2>.D snes_button_s<2>.CLK snes_button_s<3>.D 
+            snes_button_s<3>.CLK snes_button_s<4>.D snes_button_s<4>.CLK 
+            snes_button_s<5>.D snes_button_s<5>.CLK snes_button_s<6>.D 
+            snes_button_s<6>.CLK snes_button_s<7>.D snes_button_s<7>.CLK 
+            snes_button_s<8>.D snes_button_s<8>.CLK snes_button_s<9>.D 
+            snes_button_s<9>.CLK nes_data_q.D nes_data_q.CLK timer<0>.T timer<19>.T 
+            timer<10>.T timer<11>.T timer<12>.T timer<13>.T timer<14>.T timer<15>.T 
+            timer<16>.T timer<17>.T timer<18>.T timer<1>.T timer<2>.T timer<3>.T 
+            timer<4>.T timer<5>.T timer<6>.T timer<7>.T timer<8>.T timer<9>.T 
+            nes_shift<2>.T nes_shift<3>.T nes_shift<4>.T nes_shift<5>.T nes_shift<6>.T 
+            nes_shift<7>.T nes_shift<0>.D nes_shift<1>.D
+
+INT = ( 95) N_PZ_1 N_PZ_4 N_PZ_7 N_PZ_10 N_PZ_13 N_PZ_16 N_PZ_19 N_PZ_22 N_PZ_25 
+            N_PZ_28 N_PZ_29 N_PZ_30 N_PZ_31 N_PZ_32 N_PZ_35 N_PZ_38 N_PZ_41 N_PZ_44 
+            N_PZ_47 N_PZ_50 N_PZ_53 N_PZ_56 N_PZ_59 N_PZ_62 N_PZ_65 N_PZ_68 N_PZ_71 
+            N_PZ_74 N_PZ_77 N_PZ_80 N_PZ_83 N_PZ_86 N_PZ_87 N_PZ_88 N_PZ_89 N_PZ_90 
+            N_PZ_91 N_PZ_92 N_PZ_93 N_PZ_94 N_PZ_95 N_PZ_96 N_PZ_97 N_PZ_98 N_PZ_99 
+            N_PZ_100 N_PZ_101 N_PZ_102 N_PZ_103 N_PZ_104 N_PZ_105 N_PZ_106 N_PZ_107 
+            N_PZ_108 N_PZ_109 N_PZ_110 N_PZ_111 N_PZ_112 N_PZ_113 N_PZ_114 N_PZ_115 
+            N_PZ_116 N_PZ_117 N_PZ_118 N_PZ_119 N_PZ_120 N_PZ_140 N_PZ_160 N_PZ_161 
+            N_PZ_162 N_PZ_163 N_PZ_164 N_PZ_165 N_PZ_166 N_PZ_167 N_PZ_168 N_PZ_169 
+            N_PZ_170 N_PZ_171 N_PZ_172 N_PZ_173 N_PZ_174 N_PZ_175 N_PZ_176 N_PZ_177 
+            N_PZ_178 N_PZ_181 N_PZ_182 N_PZ_183 N_PZ_184 N_PZ_185 N_PZ_187 N_PZ_227 
+            N_PZ_228 N_PZ_255
+
+PINT= (  1) N_PZ_255
+
+AINT= ( 94) N_PZ_1 N_PZ_4 N_PZ_7 N_PZ_10 N_PZ_13 N_PZ_16 N_PZ_19 N_PZ_22 N_PZ_25 
+            N_PZ_28 N_PZ_29 N_PZ_30 N_PZ_31 N_PZ_32 N_PZ_35 N_PZ_38 N_PZ_41 N_PZ_44 
+            N_PZ_47 N_PZ_50 N_PZ_53 N_PZ_56 N_PZ_59 N_PZ_62 N_PZ_65 N_PZ_68 N_PZ_71 
+            N_PZ_74 N_PZ_77 N_PZ_80 N_PZ_83 N_PZ_86 N_PZ_87 N_PZ_88 N_PZ_89 N_PZ_90 
+            N_PZ_91 N_PZ_92 N_PZ_93 N_PZ_94 N_PZ_95 N_PZ_96 N_PZ_97 N_PZ_98 N_PZ_99 
+            N_PZ_100 N_PZ_101 N_PZ_102 N_PZ_103 N_PZ_104 N_PZ_105 N_PZ_106 N_PZ_107 
+            N_PZ_108 N_PZ_109 N_PZ_110 N_PZ_111 N_PZ_112 N_PZ_113 N_PZ_114 N_PZ_115 
+            N_PZ_116 N_PZ_117 N_PZ_118 N_PZ_119 N_PZ_120 N_PZ_140 N_PZ_160 N_PZ_161 
+            N_PZ_162 N_PZ_163 N_PZ_164 N_PZ_165 N_PZ_166 N_PZ_167 N_PZ_168 N_PZ_169 
+            N_PZ_170 N_PZ_171 N_PZ_172 N_PZ_173 N_PZ_174 N_PZ_175 N_PZ_176 N_PZ_177 
+            N_PZ_178 N_PZ_181 N_PZ_182 N_PZ_183 N_PZ_184 N_PZ_185 N_PZ_187 N_PZ_227 
+            N_PZ_228
+
+
+----------------------------
+|  D F S    N e t w o r k  |
+----------------------------
+clk N_PZ_1 nes_shift<0>.CLK N_PZ_4 nes_shift<1>.CLK N_PZ_7 nes_shift<2>.CLK N_PZ_10  
+nes_shift<3>.CLK N_PZ_13 nes_shift<4>.CLK N_PZ_16 nes_shift<5>.CLK N_PZ_19  
+nes_shift<6>.CLK N_PZ_22 nes_shift<7>.CLK N_PZ_25 timer<0>.CLK N_PZ_28 timer<19>.CLK  
+nes_clk N_PZ_29 nes_clk_s.D N_PZ_30 nes_clk_s.CLK nes_latch N_PZ_31 nes_latch_s.D  
+N_PZ_32 nes_latch_s.CLK N_PZ_35 timer<10>.CLK N_PZ_38 timer<11>.CLK N_PZ_41  
+timer<12>.CLK N_PZ_44 timer<13>.CLK N_PZ_47 timer<14>.CLK N_PZ_50 timer<15>.CLK  
+N_PZ_53 timer<16>.CLK N_PZ_56 timer<17>.CLK N_PZ_59 timer<18>.CLK N_PZ_62 timer<1>.CLK  
+N_PZ_65 timer<2>.CLK N_PZ_68 timer<3>.CLK N_PZ_71 timer<4>.CLK N_PZ_74 timer<5>.CLK  
+N_PZ_77 timer<6>.CLK N_PZ_80 timer<7>.CLK N_PZ_83 timer<8>.CLK N_PZ_86 timer<9>.CLK  
+timer<19>.Q snes_button_s<9>.Q N_PZ_87 ab_mask<0>.D N_PZ_88 ab_mask<0>.CLK  
+snes_button_s<1>.Q N_PZ_89 ab_mask<1>.D N_PZ_90 ab_mask<1>.CLK nes_clk_s.Q N_PZ_91  
+prev_nes_clk.D N_PZ_92 prev_nes_clk.CLK nes_latch_s.Q N_PZ_93 prev_nes_latch.D N_PZ_94  
+prev_nes_latch.CLK snes_button<0> N_PZ_95 snes_button_s<0>.D N_PZ_96  
+snes_button_s<0>.CLK snes_button<10> N_PZ_97 snes_button_s<10>.D N_PZ_98  
+snes_button_s<10>.CLK snes_button<11> N_PZ_99 snes_button_s<11>.D N_PZ_100  
+snes_button_s<11>.CLK snes_button<1> N_PZ_101 snes_button_s<1>.D N_PZ_102  
+snes_button_s<1>.CLK snes_button<2> N_PZ_103 snes_button_s<2>.D N_PZ_104  
+snes_button_s<2>.CLK snes_button<3> N_PZ_105 snes_button_s<3>.D N_PZ_106  
+snes_button_s<3>.CLK snes_button<4> N_PZ_107 snes_button_s<4>.D N_PZ_108  
+snes_button_s<4>.CLK snes_button<5> N_PZ_109 snes_button_s<5>.D N_PZ_110  
+snes_button_s<5>.CLK snes_button<6> N_PZ_111 snes_button_s<6>.D N_PZ_112  
+snes_button_s<6>.CLK snes_button<7> N_PZ_113 snes_button_s<7>.D N_PZ_114  
+snes_button_s<7>.CLK snes_button<8> N_PZ_115 snes_button_s<8>.D N_PZ_116  
+snes_button_s<8>.CLK snes_button<9> N_PZ_117 snes_button_s<9>.D N_PZ_118  
+snes_button_s<9>.CLK nes_shift<0>.Q N_PZ_119 nes_data_q.D N_PZ_120 nes_data_q.CLK  
+N_PZ_140 timer<0>.T timer<0>.Q timer<10>.Q timer<11>.Q timer<12>.Q timer<13>.Q  
+timer<14>.Q timer<15>.Q timer<16>.Q timer<17>.Q timer<18>.Q timer<1>.Q timer<2>.Q  
+timer<3>.Q timer<4>.Q timer<5>.Q timer<6>.Q timer<7>.Q timer<8>.Q timer<9>.Q N_PZ_160  
+timer<19>.T N_PZ_161 timer<10>.T N_PZ_162 timer<11>.T N_PZ_163 timer<12>.T N_PZ_164  
+timer<13>.T N_PZ_165 timer<14>.T N_PZ_166 timer<15>.T N_PZ_167 timer<16>.T N_PZ_168  
+timer<17>.T N_PZ_169 timer<18>.T N_PZ_170 timer<1>.T N_PZ_171 timer<2>.T N_PZ_172  
+timer<3>.T N_PZ_173 timer<4>.T N_PZ_174 timer<5>.T N_PZ_175 timer<6>.T N_PZ_176  
+timer<7>.T N_PZ_177 timer<8>.T N_PZ_178 timer<9>.T nes_shift<2>.Q nes_shift<3>.Q  
+prev_nes_clk.Q snes_button_s<2>.Q prev_nes_latch.Q N_PZ_255 N_PZ_181 nes_shift<2>.T  
+nes_shift<4>.Q snes_button_s<3>.Q N_PZ_182 nes_shift<3>.T nes_shift<5>.Q  
+snes_button_s<4>.Q N_PZ_183 nes_shift<4>.T nes_shift<6>.Q snes_button_s<5>.Q N_PZ_184  
+nes_shift<5>.T nes_shift<7>.Q snes_button_s<6>.Q N_PZ_185 nes_shift<6>.T  
+snes_button_s<7>.Q N_PZ_187 nes_shift<7>.T nes_shift<1>.Q ab_mask<0>.Q  
+snes_button_s<10>.Q snes_button_s<8>.Q N_PZ_227 nes_shift<0>.D ab_mask<1>.Q  
+snes_button_s<0>.Q snes_button_s<11>.Q N_PZ_228 nes_shift<1>.D 
+
+                                  Short Name                 Collapsible
+          Name       Base   Ext   | TypePolOld pt/th fi/FI fo | min          Pair        pxapin
+           clk        clk         c   PI  -  -  -| -  -| - 47 -   -             -             -
+       nes_clk    nes_clk         y   PI  -  -  -| -  -| -  1 -   -             -             -
+     nes_latch  nes_latch         z   PI  -  -  -| -  -| -  1 -   -             -             -
+snes_button<0>snes_button<0>        m1   PI  -  -  -| -  -| -  1 -   -             -             -
+snes_button<10>snes_button<10>        n1   PI  -  -  -| -  -| -  1 -   -             -             -
+snes_button<11>snes_button<11>        o1   PI  -  -  -| -  -| -  1 -   -             -             -
+snes_button<1>snes_button<1>        p1   PI  -  -  -| -  -| -  1 -   -             -             -
+snes_button<2>snes_button<2>        q1   PI  -  -  -| -  -| -  1 -   -             -             -
+snes_button<3>snes_button<3>        r1   PI  -  -  -| -  -| -  1 -   -             -             -
+snes_button<4>snes_button<4>        s1   PI  -  -  -| -  -| -  1 -   -             -             -
+snes_button<5>snes_button<5>        t1   PI  -  -  -| -  -| -  1 -   -             -             -
+snes_button<6>snes_button<6>        u1   PI  -  -  -| -  -| -  1 -   -             -             -
+snes_button<7>snes_button<7>        v1   PI  -  -  -| -  -| -  1 -   -             -             -
+snes_button<8>snes_button<8>        w1   PI  -  -  -| -  -| -  1 -   -             -             -
+snes_button<9>snes_button<9>        x1   PI  -  -  -| -  -| -  1 -   -             -             -
+        N_PZ_1     N_PZ_1     -  s7 AINT  -  -  1|28  1|32  1 -   -nes_shift<0>.CLK             -
+        N_PZ_4     N_PZ_4     -  v7 AINT  -  -  1|28  1|32  1 -   -nes_shift<1>.CLK             -
+        N_PZ_7     N_PZ_7     -  y7 AINT  -  -  1|28  1|32  1 -   -nes_shift<2>.CLK             -
+       N_PZ_10    N_PZ_10     -  b8 AINT  -  -  1|28  1|32  1 -   -nes_shift<3>.CLK             -
+       N_PZ_13    N_PZ_13     -  e8 AINT  -  -  1|28  1|32  1 -   -nes_shift<4>.CLK             -
+       N_PZ_16    N_PZ_16     -  h8 AINT  -  -  1|28  1|32  1 -   -nes_shift<5>.CLK             -
+       N_PZ_19    N_PZ_19     -  k8 AINT  -  -  1|28  1|32  1 -   -nes_shift<6>.CLK             -
+       N_PZ_22    N_PZ_22     -  n8 AINT  -  -  1|28  1|32  1 -   -nes_shift<7>.CLK             -
+       N_PZ_25    N_PZ_25     -  q8 AINT  -  -  1|28  1|32  1 -   -  timer<0>.CLK             -
+       N_PZ_28    N_PZ_28     -  t8 AINT  -  -  1|28  1|32  1 -   - timer<19>.CLK             -
+       N_PZ_29    N_PZ_29     -  u8 AINT  -  -  1|28  1|32  1 -   -   nes_clk_s.D             -
+       N_PZ_30    N_PZ_30     -  v8 AINT  -  -  1|28  1|32  1 -   - nes_clk_s.CLK             -
+       N_PZ_31    N_PZ_31     -  w8 AINT  -  -  1|28  1|32  1 -   - nes_latch_s.D             -
+       N_PZ_32    N_PZ_32     -  x8 AINT  -  -  1|28  1|32  1 -   -nes_latch_s.CLK             -
+       N_PZ_35    N_PZ_35     -  a9 AINT  -  -  1|28  1|32  1 -   - timer<10>.CLK             -
+       N_PZ_38    N_PZ_38     -  d9 AINT  -  -  1|28  1|32  1 -   - timer<11>.CLK             -
+       N_PZ_41    N_PZ_41     -  g9 AINT  -  -  1|28  1|32  1 -   - timer<12>.CLK             -
+       N_PZ_44    N_PZ_44     -  j9 AINT  -  -  1|28  1|32  1 -   - timer<13>.CLK             -
+       N_PZ_47    N_PZ_47     -  m9 AINT  -  -  1|28  1|32  1 -   - timer<14>.CLK             -
+       N_PZ_50    N_PZ_50     -  p9 AINT  -  -  1|28  1|32  1 -   - timer<15>.CLK             -
+       N_PZ_53    N_PZ_53     -  s9 AINT  -  -  1|28  1|32  1 -   - timer<16>.CLK             -
+       N_PZ_56    N_PZ_56     -  v9 AINT  -  -  1|28  1|32  1 -   - timer<17>.CLK             -
+       N_PZ_59    N_PZ_59     -  y9 AINT  -  -  1|28  1|32  1 -   - timer<18>.CLK             -
+       N_PZ_62    N_PZ_62     - b10 AINT  -  -  1|28  1|32  1 -   -  timer<1>.CLK             -
+       N_PZ_65    N_PZ_65     - e10 AINT  -  -  1|28  1|32  1 -   -  timer<2>.CLK             -
+       N_PZ_68    N_PZ_68     - h10 AINT  -  -  1|28  1|32  1 -   -  timer<3>.CLK             -
+       N_PZ_71    N_PZ_71     - k10 AINT  -  -  1|28  1|32  1 -   -  timer<4>.CLK             -
+       N_PZ_74    N_PZ_74     - n10 AINT  -  -  1|28  1|32  1 -   -  timer<5>.CLK             -
+       N_PZ_77    N_PZ_77     - q10 AINT  -  -  1|28  1|32  1 -   -  timer<6>.CLK             -
+       N_PZ_80    N_PZ_80     - t10 AINT  -  -  1|28  1|32  1 -   -  timer<7>.CLK             -
+       N_PZ_83    N_PZ_83     - w10 AINT  -  -  1|28  1|32  1 -   -  timer<8>.CLK             -
+       N_PZ_86    N_PZ_86     - z10 AINT  -  -  1|28  1|32  1 -   -  timer<9>.CLK             -
+       N_PZ_87    N_PZ_87     - a11 AINT  -  -  1|28  2|32  1 -   -  ab_mask<0>.D             -
+       N_PZ_88    N_PZ_88     - b11 AINT  -  -  1|28  1|32  1 -   -ab_mask<0>.CLK             -
+       N_PZ_89    N_PZ_89     - c11 AINT  -  -  1|28  2|32  1 -   -  ab_mask<1>.D             -
+       N_PZ_90    N_PZ_90     - d11 AINT  -  -  1|28  1|32  1 -   -ab_mask<1>.CLK             -
+       N_PZ_91    N_PZ_91     - e11 AINT  -  -  1|28  1|32  1 -   -prev_nes_clk.D             -
+       N_PZ_92    N_PZ_92     - f11 AINT  -  -  1|28  1|32  1 -   -prev_nes_clk.CLK             -
+       N_PZ_93    N_PZ_93     - g11 AINT  -  -  1|28  1|32  1 -   -prev_nes_latch.D             -
+       N_PZ_94    N_PZ_94     - h11 AINT  -  -  1|28  1|32  1 -   -prev_nes_latch.CLK             -
+       N_PZ_95    N_PZ_95     - i11 AINT  -  -  1|28  1|32  1 -   -snes_button_s<0>.D             -
+       N_PZ_96    N_PZ_96     - j11 AINT  -  -  1|28  1|32  1 -   -snes_button_s<0>.CLK             -
+       N_PZ_97    N_PZ_97     - k11 AINT  -  -  1|28  1|32  1 -   -snes_button_s<10>.D             -
+       N_PZ_98    N_PZ_98     - l11 AINT  -  -  1|28  1|32  1 -   -snes_button_s<10>.CLK             -
+       N_PZ_99    N_PZ_99     - m11 AINT  -  -  1|28  1|32  1 -   -snes_button_s<11>.D             -
+      N_PZ_100   N_PZ_100     - n11 AINT  -  -  1|28  1|32  1 -   -snes_button_s<11>.CLK             -
+      N_PZ_101   N_PZ_101     - o11 AINT  -  -  1|28  1|32  1 -   -snes_button_s<1>.D             -
+      N_PZ_102   N_PZ_102     - p11 AINT  -  -  1|28  1|32  1 -   -snes_button_s<1>.CLK             -
+      N_PZ_103   N_PZ_103     - q11 AINT  -  -  1|28  1|32  1 -   -snes_button_s<2>.D             -
+      N_PZ_104   N_PZ_104     - r11 AINT  -  -  1|28  1|32  1 -   -snes_button_s<2>.CLK             -
+      N_PZ_105   N_PZ_105     - s11 AINT  -  -  1|28  1|32  1 -   -snes_button_s<3>.D             -
+      N_PZ_106   N_PZ_106     - t11 AINT  -  -  1|28  1|32  1 -   -snes_button_s<3>.CLK             -
+      N_PZ_107   N_PZ_107     - u11 AINT  -  -  1|28  1|32  1 -   -snes_button_s<4>.D             -
+      N_PZ_108   N_PZ_108     - v11 AINT  -  -  1|28  1|32  1 -   -snes_button_s<4>.CLK             -
+      N_PZ_109   N_PZ_109     - w11 AINT  -  -  1|28  1|32  1 -   -snes_button_s<5>.D             -
+      N_PZ_110   N_PZ_110     - x11 AINT  -  -  1|28  1|32  1 -   -snes_button_s<5>.CLK             -
+      N_PZ_111   N_PZ_111     - y11 AINT  -  -  1|28  1|32  1 -   -snes_button_s<6>.D             -
+      N_PZ_112   N_PZ_112     - z11 AINT  -  -  1|28  1|32  1 -   -snes_button_s<6>.CLK             -
+      N_PZ_113   N_PZ_113     - a12 AINT  -  -  1|28  1|32  1 -   -snes_button_s<7>.D             -
+      N_PZ_114   N_PZ_114     - b12 AINT  -  -  1|28  1|32  1 -   -snes_button_s<7>.CLK             -
+      N_PZ_115   N_PZ_115     - c12 AINT  -  -  1|28  1|32  1 -   -snes_button_s<8>.D             -
+      N_PZ_116   N_PZ_116     - d12 AINT  -  -  1|28  1|32  1 -   -snes_button_s<8>.CLK             -
+      N_PZ_117   N_PZ_117     - e12 AINT  -  -  1|28  1|32  1 -   -snes_button_s<9>.D             -
+      N_PZ_118   N_PZ_118     - f12 AINT  -  -  1|28  1|32  1 -   -snes_button_s<9>.CLK             -
+      N_PZ_119   N_PZ_119     - g12 AINT  -  -  1|28  1|32  1 -   -  nes_data_q.D             -
+      N_PZ_120   N_PZ_120     - h12 AINT  -  -  1|28  1|32  1 -   -nes_data_q.CLK             -
+nes_shift<0>.CLKnes_shift<0>  .CLK  x2   PO  -  -  -| -  -| -  0 -   -        N_PZ_1  nes_shift<0>
+nes_shift<1>.CLKnes_shift<1>  .CLK  a3   PO  -  -  -| -  -| -  0 -   -        N_PZ_4  nes_shift<1>
+nes_shift<2>.CLKnes_shift<2>  .CLK  d3   PO  -  -  -| -  -| -  0 -   -        N_PZ_7  nes_shift<2>
+nes_shift<3>.CLKnes_shift<3>  .CLK  g3   PO  -  -  -| -  -| -  0 -   -       N_PZ_10  nes_shift<3>
+nes_shift<4>.CLKnes_shift<4>  .CLK  j3   PO  -  -  -| -  -| -  0 -   -       N_PZ_13  nes_shift<4>
+nes_shift<5>.CLKnes_shift<5>  .CLK  m3   PO  -  -  -| -  -| -  0 -   -       N_PZ_16  nes_shift<5>
+nes_shift<6>.CLKnes_shift<6>  .CLK  p3   PO  -  -  -| -  -| -  0 -   -       N_PZ_19  nes_shift<6>
+nes_shift<7>.CLKnes_shift<7>  .CLK  s3   PO  -  -  -| -  -| -  0 -   -       N_PZ_22  nes_shift<7>
+  timer<0>.CLK   timer<0>  .CLK  v3   PO  -  -  -| -  -| -  0 -   -       N_PZ_25      timer<0>
+ timer<19>.CLK  timer<19>  .CLK  y3   PO  -  -  -| -  -| -  0 -   -       N_PZ_28     timer<19>
+   nes_clk_s.D  nes_clk_s    .D  z3   PO  -  -  -| -  -| -  0 -   -       N_PZ_29     nes_clk_s
+ nes_clk_s.CLK  nes_clk_s  .CLK  a4   PO  -  -  -| -  -| -  0 -   -       N_PZ_30     nes_clk_s
+ nes_latch_s.Dnes_latch_s    .D  b4   PO  -  -  -| -  -| -  0 -   -       N_PZ_31   nes_latch_s
+nes_latch_s.CLKnes_latch_s  .CLK  c4   PO  -  -  -| -  -| -  0 -   -       N_PZ_32   nes_latch_s
+ timer<10>.CLK  timer<10>  .CLK  f4   PO  -  -  -| -  -| -  0 -   -       N_PZ_35     timer<10>
+ timer<11>.CLK  timer<11>  .CLK  i4   PO  -  -  -| -  -| -  0 -   -       N_PZ_38     timer<11>
+ timer<12>.CLK  timer<12>  .CLK  l4   PO  -  -  -| -  -| -  0 -   -       N_PZ_41     timer<12>
+ timer<13>.CLK  timer<13>  .CLK  o4   PO  -  -  -| -  -| -  0 -   -       N_PZ_44     timer<13>
+ timer<14>.CLK  timer<14>  .CLK  r4   PO  -  -  -| -  -| -  0 -   -       N_PZ_47     timer<14>
+ timer<15>.CLK  timer<15>  .CLK  u4   PO  -  -  -| -  -| -  0 -   -       N_PZ_50     timer<15>
+ timer<16>.CLK  timer<16>  .CLK  x4   PO  -  -  -| -  -| -  0 -   -       N_PZ_53     timer<16>
+ timer<17>.CLK  timer<17>  .CLK  a5   PO  -  -  -| -  -| -  0 -   -       N_PZ_56     timer<17>
+ timer<18>.CLK  timer<18>  .CLK  d5   PO  -  -  -| -  -| -  0 -   -       N_PZ_59     timer<18>
+  timer<1>.CLK   timer<1>  .CLK  g5   PO  -  -  -| -  -| -  0 -   -       N_PZ_62      timer<1>
+  timer<2>.CLK   timer<2>  .CLK  j5   PO  -  -  -| -  -| -  0 -   -       N_PZ_65      timer<2>
+  timer<3>.CLK   timer<3>  .CLK  m5   PO  -  -  -| -  -| -  0 -   -       N_PZ_68      timer<3>
+  timer<4>.CLK   timer<4>  .CLK  p5   PO  -  -  -| -  -| -  0 -   -       N_PZ_71      timer<4>
+  timer<5>.CLK   timer<5>  .CLK  s5   PO  -  -  -| -  -| -  0 -   -       N_PZ_74      timer<5>
+  timer<6>.CLK   timer<6>  .CLK  v5   PO  -  -  -| -  -| -  0 -   -       N_PZ_77      timer<6>
+  timer<7>.CLK   timer<7>  .CLK  y5   PO  -  -  -| -  -| -  0 -   -       N_PZ_80      timer<7>
+  timer<8>.CLK   timer<8>  .CLK  b6   PO  -  -  -| -  -| -  0 -   -       N_PZ_83      timer<8>
+  timer<9>.CLK   timer<9>  .CLK  e6   PO  -  -  -| -  -| -  0 -   -       N_PZ_86      timer<9>
+  ab_mask<0>.D ab_mask<0>    .D  f6   PO  -  -  -| -  -| -  0 -   -       N_PZ_87    ab_mask<0>
+ab_mask<0>.CLK ab_mask<0>  .CLK  g6   PO  -  -  -| -  -| -  0 -   -       N_PZ_88    ab_mask<0>
+  ab_mask<1>.D ab_mask<1>    .D  h6   PO  -  -  -| -  -| -  0 -   -       N_PZ_89    ab_mask<1>
+ab_mask<1>.CLK ab_mask<1>  .CLK  i6   PO  -  -  -| -  -| -  0 -   -       N_PZ_90    ab_mask<1>
+prev_nes_clk.Dprev_nes_clk    .D  j6   PO  -  -  -| -  -| -  0 -   -       N_PZ_91  prev_nes_clk
+prev_nes_clk.CLKprev_nes_clk  .CLK  k6   PO  -  -  -| -  -| -  0 -   -       N_PZ_92  prev_nes_clk
+prev_nes_latch.Dprev_nes_latch    .D  l6   PO  -  -  -| -  -| -  0 -   -       N_PZ_93prev_nes_latch
+prev_nes_latch.CLKprev_nes_latch  .CLK  m6   PO  -  -  -| -  -| -  0 -   -       N_PZ_94prev_nes_latch
+snes_button_s<0>.Dsnes_button_s<0>    .D  n6   PO  -  -  -| -  -| -  0 -   -       N_PZ_95snes_button_s<0>
+snes_button_s<0>.CLKsnes_button_s<0>  .CLK  o6   PO  -  -  -| -  -| -  0 -   -       N_PZ_96snes_button_s<0>
+snes_button_s<10>.Dsnes_button_s<10>    .D  p6   PO  -  -  -| -  -| -  0 -   -       N_PZ_97snes_button_s<10>
+snes_button_s<10>.CLKsnes_button_s<10>  .CLK  q6   PO  -  -  -| -  -| -  0 -   -       N_PZ_98snes_button_s<10>
+snes_button_s<11>.Dsnes_button_s<11>    .D  r6   PO  -  -  -| -  -| -  0 -   -       N_PZ_99snes_button_s<11>
+snes_button_s<11>.CLKsnes_button_s<11>  .CLK  s6   PO  -  -  -| -  -| -  0 -   -      N_PZ_100snes_button_s<11>
+snes_button_s<1>.Dsnes_button_s<1>    .D  t6   PO  -  -  -| -  -| -  0 -   -      N_PZ_101snes_button_s<1>
+snes_button_s<1>.CLKsnes_button_s<1>  .CLK  u6   PO  -  -  -| -  -| -  0 -   -      N_PZ_102snes_button_s<1>
+snes_button_s<2>.Dsnes_button_s<2>    .D  v6   PO  -  -  -| -  -| -  0 -   -      N_PZ_103snes_button_s<2>
+snes_button_s<2>.CLKsnes_button_s<2>  .CLK  w6   PO  -  -  -| -  -| -  0 -   -      N_PZ_104snes_button_s<2>
+snes_button_s<3>.Dsnes_button_s<3>    .D  x6   PO  -  -  -| -  -| -  0 -   -      N_PZ_105snes_button_s<3>
+snes_button_s<3>.CLKsnes_button_s<3>  .CLK  y6   PO  -  -  -| -  -| -  0 -   -      N_PZ_106snes_button_s<3>
+snes_button_s<4>.Dsnes_button_s<4>    .D  z6   PO  -  -  -| -  -| -  0 -   -      N_PZ_107snes_button_s<4>
+snes_button_s<4>.CLKsnes_button_s<4>  .CLK  a7   PO  -  -  -| -  -| -  0 -   -      N_PZ_108snes_button_s<4>
+snes_button_s<5>.Dsnes_button_s<5>    .D  b7   PO  -  -  -| -  -| -  0 -   -      N_PZ_109snes_button_s<5>
+snes_button_s<5>.CLKsnes_button_s<5>  .CLK  c7   PO  -  -  -| -  -| -  0 -   -      N_PZ_110snes_button_s<5>
+snes_button_s<6>.Dsnes_button_s<6>    .D  d7   PO  -  -  -| -  -| -  0 -   -      N_PZ_111snes_button_s<6>
+snes_button_s<6>.CLKsnes_button_s<6>  .CLK  e7   PO  -  -  -| -  -| -  0 -   -      N_PZ_112snes_button_s<6>
+snes_button_s<7>.Dsnes_button_s<7>    .D  f7   PO  -  -  -| -  -| -  0 -   -      N_PZ_113snes_button_s<7>
+snes_button_s<7>.CLKsnes_button_s<7>  .CLK  g7   PO  -  -  -| -  -| -  0 -   -      N_PZ_114snes_button_s<7>
+snes_button_s<8>.Dsnes_button_s<8>    .D  h7   PO  -  -  -| -  -| -  0 -   -      N_PZ_115snes_button_s<8>
+snes_button_s<8>.CLKsnes_button_s<8>  .CLK  i7   PO  -  -  -| -  -| -  0 -   -      N_PZ_116snes_button_s<8>
+snes_button_s<9>.Dsnes_button_s<9>    .D  j7   PO  -  -  -| -  -| -  0 -   -      N_PZ_117snes_button_s<9>
+snes_button_s<9>.CLKsnes_button_s<9>  .CLK  k7   PO  -  -  -| -  -| -  0 -   -      N_PZ_118snes_button_s<9>
+  nes_data_q.D nes_data_q    .D  p7   PO  -  -  -| -  -| -  0 -   -      N_PZ_119    nes_data_q
+nes_data_q.CLK nes_data_q  .CLK  q7   PO  -  -  -| -  -| -  0 -   -      N_PZ_120    nes_data_q
+nes_shift<0>.Qnes_shift<0>    .Q u13   PI  -  -  -| -  -| -  2 -   -             -             -
+nes_shift<1>.Qnes_shift<1>    .Q v13   PI  -  -  -| -  -| -  2 -   -             -             -
+nes_shift<2>.Qnes_shift<2>    .Q w13   PI  -  -  -| -  -| -  2 -   -             -             -
+nes_shift<3>.Qnes_shift<3>    .Q x13   PI  -  -  -| -  -| -  2 -   -             -             -
+nes_shift<4>.Qnes_shift<4>    .Q y13   PI  -  -  -| -  -| -  2 -   -             -             -
+nes_shift<5>.Qnes_shift<5>    .Q z13   PI  -  -  -| -  -| -  2 -   -             -             -
+nes_shift<6>.Qnes_shift<6>    .Q a14   PI  -  -  -| -  -| -  2 -   -             -             -
+nes_shift<7>.Qnes_shift<7>    .Q b14   PI  -  -  -| -  -| -  2 -   -             -             -
+    timer<0>.Q   timer<0>    .Q c14   PI  -  -  -| -  -| - 19 -   -             -             -
+   nes_clk_s.Q  nes_clk_s    .Q d14   PI  -  -  -| -  -| -  9 -   -             -             -
+ nes_latch_s.Qnes_latch_s    .Q e14   PI  -  -  -| -  -| -  2 -   -             -             -
+  ab_mask<0>.Q ab_mask<0>    .Q f14   PI  -  -  -| -  -| -  1 -   -             -             -
+  ab_mask<1>.Q ab_mask<1>    .Q g14   PI  -  -  -| -  -| -  1 -   -             -             -
+prev_nes_clk.Qprev_nes_clk    .Q h14   PI  -  -  -| -  -| -  8 -   -             -             -
+prev_nes_latch.Qprev_nes_latch    .Q i14   PI  -  -  -| -  -| -  1 -   -             -             -
+snes_button_s<0>.Qsnes_button_s<0>    .Q j14   PI  -  -  -| -  -| -  1 -   -             -             -
+snes_button_s<10>.Qsnes_button_s<10>    .Q k14   PI  -  -  -| -  -| -  1 -   -             -             -
+snes_button_s<11>.Qsnes_button_s<11>    .Q l14   PI  -  -  -| -  -| -  1 -   -             -             -
+snes_button_s<1>.Qsnes_button_s<1>    .Q m14   PI  -  -  -| -  -| -  1 -   -             -             -
+snes_button_s<2>.Qsnes_button_s<2>    .Q n14   PI  -  -  -| -  -| -  1 -   -             -             -
+snes_button_s<3>.Qsnes_button_s<3>    .Q o14   PI  -  -  -| -  -| -  1 -   -             -             -
+snes_button_s<4>.Qsnes_button_s<4>    .Q p14   PI  -  -  -| -  -| -  1 -   -             -             -
+snes_button_s<5>.Qsnes_button_s<5>    .Q q14   PI  -  -  -| -  -| -  1 -   -             -             -
+snes_button_s<6>.Qsnes_button_s<6>    .Q r14   PI  -  -  -| -  -| -  1 -   -             -             -
+snes_button_s<7>.Qsnes_button_s<7>    .Q s14   PI  -  -  -| -  -| -  1 -   -             -             -
+snes_button_s<8>.Qsnes_button_s<8>    .Q t14   PI  -  -  -| -  -| -  1 -   -             -             -
+snes_button_s<9>.Qsnes_button_s<9>    .Q u14   PI  -  -  -| -  -| -  1 -   -             -             -
+   timer<19>.Q  timer<19>    .Q v14   PI  -  -  -| -  -| -  2 -   -             -             -
+   timer<10>.Q  timer<10>    .Q w14   PI  -  -  -| -  -| -  9 -   -             -             -
+   timer<11>.Q  timer<11>    .Q x14   PI  -  -  -| -  -| -  8 -   -             -             -
+   timer<12>.Q  timer<12>    .Q y14   PI  -  -  -| -  -| -  7 -   -             -             -
+   timer<13>.Q  timer<13>    .Q z14   PI  -  -  -| -  -| -  6 -   -             -             -
+   timer<14>.Q  timer<14>    .Q a15   PI  -  -  -| -  -| -  5 -   -             -             -
+   timer<15>.Q  timer<15>    .Q b15   PI  -  -  -| -  -| -  4 -   -             -             -
+   timer<16>.Q  timer<16>    .Q c15   PI  -  -  -| -  -| -  3 -   -             -             -
+   timer<17>.Q  timer<17>    .Q d15   PI  -  -  -| -  -| -  2 -   -             -             -
+   timer<18>.Q  timer<18>    .Q e15   PI  -  -  -| -  -| -  1 -   -             -             -
+    timer<1>.Q   timer<1>    .Q f15   PI  -  -  -| -  -| - 18 -   -             -             -
+    timer<2>.Q   timer<2>    .Q g15   PI  -  -  -| -  -| - 17 -   -             -             -
+    timer<3>.Q   timer<3>    .Q h15   PI  -  -  -| -  -| - 16 -   -             -             -
+    timer<4>.Q   timer<4>    .Q i15   PI  -  -  -| -  -| - 15 -   -             -             -
+    timer<5>.Q   timer<5>    .Q j15   PI  -  -  -| -  -| - 14 -   -             -             -
+    timer<6>.Q   timer<6>    .Q k15   PI  -  -  -| -  -| - 13 -   -             -             -
+    timer<7>.Q   timer<7>    .Q l15   PI  -  -  -| -  -| - 12 -   -             -             -
+    timer<8>.Q   timer<8>    .Q m15   PI  -  -  -| -  -| - 11 -   -             -             -
+    timer<9>.Q   timer<9>    .Q n15   PI  -  -  -| -  -| - 10 -   -             -             -
+      N_PZ_140   N_PZ_140     - c17 AINT  -  -  1|28  0|32  1 -   -    timer<0>.T             -
+      N_PZ_160   N_PZ_160     - w17 AINT  -  -  1|28 19|32  1 -   -   timer<19>.T             -
+      N_PZ_161   N_PZ_161     - x17 AINT  -  -  1|28 10|32  1 -   -   timer<10>.T             -
+      N_PZ_162   N_PZ_162     - y17 AINT  -  -  1|28 11|32  1 -   -   timer<11>.T             -
+      N_PZ_163   N_PZ_163     - z17 AINT  -  -  1|28 12|32  1 -   -   timer<12>.T             -
+      N_PZ_164   N_PZ_164     - a18 AINT  -  -  1|28 13|32  1 -   -   timer<13>.T             -
+      N_PZ_165   N_PZ_165     - b18 AINT  -  -  1|28 14|32  1 -   -   timer<14>.T             -
+      N_PZ_166   N_PZ_166     - c18 AINT  -  -  1|28 15|32  1 -   -   timer<15>.T             -
+      N_PZ_167   N_PZ_167     - d18 AINT  -  -  1|28 16|32  1 -   -   timer<16>.T             -
+      N_PZ_168   N_PZ_168     - e18 AINT  -  -  1|28 17|32  1 -   -   timer<17>.T             -
+      N_PZ_169   N_PZ_169     - f18 AINT  -  -  1|28 18|32  1 -   -   timer<18>.T             -
+      N_PZ_170   N_PZ_170     - g18 AINT  -  -  1|28  1|32  1 -   -    timer<1>.T             -
+      N_PZ_171   N_PZ_171     - h18 AINT  -  -  1|28  2|32  1 -   -    timer<2>.T             -
+      N_PZ_172   N_PZ_172     - i18 AINT  -  -  1|28  3|32  1 -   -    timer<3>.T             -
+      N_PZ_173   N_PZ_173     - j18 AINT  -  -  1|28  4|32  1 -   -    timer<4>.T             -
+      N_PZ_174   N_PZ_174     - k18 AINT  -  -  1|28  5|32  1 -   -    timer<5>.T             -
+      N_PZ_175   N_PZ_175     - l18 AINT  -  -  1|28  6|32  1 -   -    timer<6>.T             -
+      N_PZ_176   N_PZ_176     - m18 AINT  -  -  1|28  7|32  1 -   -    timer<7>.T             -
+      N_PZ_177   N_PZ_177     - n18 AINT  -  -  1|28  8|32  1 -   -    timer<8>.T             -
+      N_PZ_178   N_PZ_178     - o18 AINT  -  -  1|28  9|32  1 -   -    timer<9>.T             -
+    timer<0>.T   timer<0>    .T o15   PO  -  -  -| -  -| -  0 -   -      N_PZ_140      timer<0>
+   timer<19>.T  timer<19>    .T j16   PO  -  -  -| -  -| -  0 -   -      N_PZ_160     timer<19>
+   timer<10>.T  timer<10>    .T k16   PO  -  -  -| -  -| -  0 -   -      N_PZ_161     timer<10>
+   timer<11>.T  timer<11>    .T l16   PO  -  -  -| -  -| -  0 -   -      N_PZ_162     timer<11>
+   timer<12>.T  timer<12>    .T m16   PO  -  -  -| -  -| -  0 -   -      N_PZ_163     timer<12>
+   timer<13>.T  timer<13>    .T n16   PO  -  -  -| -  -| -  0 -   -      N_PZ_164     timer<13>
+   timer<14>.T  timer<14>    .T o16   PO  -  -  -| -  -| -  0 -   -      N_PZ_165     timer<14>
+   timer<15>.T  timer<15>    .T p16   PO  -  -  -| -  -| -  0 -   -      N_PZ_166     timer<15>
+   timer<16>.T  timer<16>    .T q16   PO  -  -  -| -  -| -  0 -   -      N_PZ_167     timer<16>
+   timer<17>.T  timer<17>    .T r16   PO  -  -  -| -  -| -  0 -   -      N_PZ_168     timer<17>
+   timer<18>.T  timer<18>    .T s16   PO  -  -  -| -  -| -  0 -   -      N_PZ_169     timer<18>
+    timer<1>.T   timer<1>    .T t16   PO  -  -  -| -  -| -  0 -   -      N_PZ_170      timer<1>
+    timer<2>.T   timer<2>    .T u16   PO  -  -  -| -  -| -  0 -   -      N_PZ_171      timer<2>
+    timer<3>.T   timer<3>    .T v16   PO  -  -  -| -  -| -  0 -   -      N_PZ_172      timer<3>
+    timer<4>.T   timer<4>    .T w16   PO  -  -  -| -  -| -  0 -   -      N_PZ_173      timer<4>
+    timer<5>.T   timer<5>    .T x16   PO  -  -  -| -  -| -  0 -   -      N_PZ_174      timer<5>
+    timer<6>.T   timer<6>    .T y16   PO  -  -  -| -  -| -  0 -   -      N_PZ_175      timer<6>
+    timer<7>.T   timer<7>    .T z16   PO  -  -  -| -  -| -  0 -   -      N_PZ_176      timer<7>
+    timer<8>.T   timer<8>    .T a17   PO  -  -  -| -  -| -  0 -   -      N_PZ_177      timer<8>
+    timer<9>.T   timer<9>    .T b17   PO  -  -  -| -  -| -  0 -   -      N_PZ_178      timer<9>
+      N_PZ_181   N_PZ_181     - u18 AINT  -  -  4|28  6|32  1 -   -nes_shift<2>.T             -
+nes_shift<2>.Tnes_shift<2>    .T t18   PO  -  -  -| -  -| -  0 -   -      N_PZ_181  nes_shift<2>
+      N_PZ_182   N_PZ_182     - w18 AINT  -  -  4|28  6|32  1 -   -nes_shift<3>.T             -
+nes_shift<3>.Tnes_shift<3>    .T v18   PO  -  -  -| -  -| -  0 -   -      N_PZ_182  nes_shift<3>
+      N_PZ_183   N_PZ_183     - y18 AINT  -  -  4|28  6|32  1 -   -nes_shift<4>.T             -
+nes_shift<4>.Tnes_shift<4>    .T x18   PO  -  -  -| -  -| -  0 -   -      N_PZ_183  nes_shift<4>
+      N_PZ_184   N_PZ_184     - a19 AINT  -  -  4|28  6|32  1 -   -nes_shift<5>.T             -
+nes_shift<5>.Tnes_shift<5>    .T z18   PO  -  -  -| -  -| -  0 -   -      N_PZ_184  nes_shift<5>
+      N_PZ_185   N_PZ_185     - c19 AINT  -  -  4|28  6|32  1 -   -nes_shift<6>.T             -
+nes_shift<6>.Tnes_shift<6>    .T b19   PO  -  -  -| -  -| -  0 -   -      N_PZ_185  nes_shift<6>
+      N_PZ_187   N_PZ_187     - b21 AINT  -  -  3|28  5|32  1 -   -nes_shift<7>.T             -
+      N_PZ_227   N_PZ_227     - p22 AINT  -  -  6|28  8|32  1 -   -nes_shift<0>.D             -
+      N_PZ_228   N_PZ_228     - q22 AINT  -  -  6|28  8|32  1 -   -nes_shift<1>.D             -
+nes_shift<7>.Tnes_shift<7>    .T f19   PO  -  -  -| -  -| -  0 -   -      N_PZ_187  nes_shift<7>
+nes_shift<0>.Dnes_shift<0>    .D u20   PO  -  -  -| -  -| -  0 -   -      N_PZ_227  nes_shift<0>
+nes_shift<1>.Dnes_shift<1>    .D v20   PO  -  -  -| -  -| -  0 -   -      N_PZ_228  nes_shift<1>
+      N_PZ_255   N_PZ_255     - r23 PINT  -  -  2|28  2|32  8 Y   -             -      N_PZ_255
+
+---------------------------------------------------------
+|  PinCnt = 16, NodeCnt = 47, Total = 63, TotalPt = 123 |
+---------------------------------------------------------
+clk,net=SNES_to_NES: PI
+  <--0-- 
+  --47--> (N_PZ_1, SNES_to_NES) (N_PZ_4, SNES_to_NES) (N_PZ_7, SNES_to_NES)  
+          (N_PZ_10, SNES_to_NES) (N_PZ_13, SNES_to_NES) (N_PZ_16, SNES_to_NES)  
+          (N_PZ_19, SNES_to_NES) (N_PZ_22, SNES_to_NES) (N_PZ_25, SNES_to_NES)  
+          (N_PZ_28, SNES_to_NES) (N_PZ_30, SNES_to_NES) (N_PZ_32, SNES_to_NES)  
+          (N_PZ_35, SNES_to_NES) (N_PZ_38, SNES_to_NES) (N_PZ_41, SNES_to_NES)  
+          (N_PZ_44, SNES_to_NES) (N_PZ_47, SNES_to_NES) (N_PZ_50, SNES_to_NES)  
+          (N_PZ_53, SNES_to_NES) (N_PZ_56, SNES_to_NES) (N_PZ_59, SNES_to_NES)  
+          (N_PZ_62, SNES_to_NES) (N_PZ_65, SNES_to_NES) (N_PZ_68, SNES_to_NES)  
+          (N_PZ_71, SNES_to_NES) (N_PZ_74, SNES_to_NES) (N_PZ_77, SNES_to_NES)  
+          (N_PZ_80, SNES_to_NES) (N_PZ_83, SNES_to_NES) (N_PZ_86, SNES_to_NES)  
+          (N_PZ_88, SNES_to_NES) (N_PZ_90, SNES_to_NES) (N_PZ_92, SNES_to_NES)  
+          (N_PZ_94, SNES_to_NES) (N_PZ_96, SNES_to_NES) (N_PZ_98, SNES_to_NES)  
+          (N_PZ_100, SNES_to_NES) (N_PZ_102, SNES_to_NES) (N_PZ_104, SNES_to_NES)  
+          (N_PZ_106, SNES_to_NES) (N_PZ_108, SNES_to_NES) (N_PZ_110, SNES_to_NES)  
+          (N_PZ_112, SNES_to_NES) (N_PZ_114, SNES_to_NES) (N_PZ_116, SNES_to_NES)  
+          (N_PZ_118, SNES_to_NES) (N_PZ_120, SNES_to_NES) 
+nes_clk,net=SNES_to_NES: PI
+  <--0-- 
+  --1--> (N_PZ_29, SNES_to_NES) 
+nes_latch,net=SNES_to_NES: PI
+  <--0-- 
+  --1--> (N_PZ_31, SNES_to_NES) 
+snes_button<0>,net=SNES_to_NES: PI
+  <--0-- 
+  --1--> (N_PZ_95, SNES_to_NES) 
+snes_button<10>,net=SNES_to_NES: PI
+  <--0-- 
+  --1--> (N_PZ_97, SNES_to_NES) 
+snes_button<11>,net=SNES_to_NES: PI
+  <--0-- 
+  --1--> (N_PZ_99, SNES_to_NES) 
+snes_button<1>,net=SNES_to_NES: PI
+  <--0-- 
+  --1--> (N_PZ_101, SNES_to_NES) 
+snes_button<2>,net=SNES_to_NES: PI
+  <--0-- 
+  --1--> (N_PZ_103, SNES_to_NES) 
+snes_button<3>,net=SNES_to_NES: PI
+  <--0-- 
+  --1--> (N_PZ_105, SNES_to_NES) 
+snes_button<4>,net=SNES_to_NES: PI
+  <--0-- 
+  --1--> (N_PZ_107, SNES_to_NES) 
+snes_button<5>,net=SNES_to_NES: PI
+  <--0-- 
+  --1--> (N_PZ_109, SNES_to_NES) 
+snes_button<6>,net=SNES_to_NES: PI
+  <--0-- 
+  --1--> (N_PZ_111, SNES_to_NES) 
+snes_button<7>,net=SNES_to_NES: PI
+  <--0-- 
+  --1--> (N_PZ_113, SNES_to_NES) 
+snes_button<8>,net=SNES_to_NES: PI
+  <--0-- 
+  --1--> (N_PZ_115, SNES_to_NES) 
+snes_button<9>,net=SNES_to_NES: PI
+  <--0-- 
+  --1--> (N_PZ_117, SNES_to_NES) 
+N_PZ_1,net=SNES_to_NES: PINT ( nes_shift<0>.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (nes_shift<0>.CLK, SNES_to_NES) 
+N_PZ_4,net=SNES_to_NES: PINT ( nes_shift<1>.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (nes_shift<1>.CLK, SNES_to_NES) 
+N_PZ_7,net=SNES_to_NES: PINT ( nes_shift<2>.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (nes_shift<2>.CLK, SNES_to_NES) 
+N_PZ_10,net=SNES_to_NES: PINT ( nes_shift<3>.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (nes_shift<3>.CLK, SNES_to_NES) 
+N_PZ_13,net=SNES_to_NES: PINT ( nes_shift<4>.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (nes_shift<4>.CLK, SNES_to_NES) 
+N_PZ_16,net=SNES_to_NES: PINT ( nes_shift<5>.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (nes_shift<5>.CLK, SNES_to_NES) 
+N_PZ_19,net=SNES_to_NES: PINT ( nes_shift<6>.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (nes_shift<6>.CLK, SNES_to_NES) 
+N_PZ_22,net=SNES_to_NES: PINT ( nes_shift<7>.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (nes_shift<7>.CLK, SNES_to_NES) 
+N_PZ_25,net=SNES_to_NES: PINT ( timer<0>.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (timer<0>.CLK, SNES_to_NES) 
+N_PZ_28,net=SNES_to_NES: PINT ( timer<19>.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (timer<19>.CLK, SNES_to_NES) 
+N_PZ_29,net=SNES_to_NES: PINT ( nes_clk_s.D )
+  <--1--  (nes_clk, SNES_to_NES)
+  --1--> (nes_clk_s.D, SNES_to_NES) 
+N_PZ_30,net=SNES_to_NES: PINT ( nes_clk_s.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (nes_clk_s.CLK, SNES_to_NES) 
+N_PZ_31,net=SNES_to_NES: PINT ( nes_latch_s.D )
+  <--1--  (nes_latch, SNES_to_NES)
+  --1--> (nes_latch_s.D, SNES_to_NES) 
+N_PZ_32,net=SNES_to_NES: PINT ( nes_latch_s.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (nes_latch_s.CLK, SNES_to_NES) 
+N_PZ_35,net=SNES_to_NES: PINT ( timer<10>.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (timer<10>.CLK, SNES_to_NES) 
+N_PZ_38,net=SNES_to_NES: PINT ( timer<11>.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (timer<11>.CLK, SNES_to_NES) 
+N_PZ_41,net=SNES_to_NES: PINT ( timer<12>.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (timer<12>.CLK, SNES_to_NES) 
+N_PZ_44,net=SNES_to_NES: PINT ( timer<13>.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (timer<13>.CLK, SNES_to_NES) 
+N_PZ_47,net=SNES_to_NES: PINT ( timer<14>.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (timer<14>.CLK, SNES_to_NES) 
+N_PZ_50,net=SNES_to_NES: PINT ( timer<15>.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (timer<15>.CLK, SNES_to_NES) 
+N_PZ_53,net=SNES_to_NES: PINT ( timer<16>.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (timer<16>.CLK, SNES_to_NES) 
+N_PZ_56,net=SNES_to_NES: PINT ( timer<17>.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (timer<17>.CLK, SNES_to_NES) 
+N_PZ_59,net=SNES_to_NES: PINT ( timer<18>.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (timer<18>.CLK, SNES_to_NES) 
+N_PZ_62,net=SNES_to_NES: PINT ( timer<1>.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (timer<1>.CLK, SNES_to_NES) 
+N_PZ_65,net=SNES_to_NES: PINT ( timer<2>.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (timer<2>.CLK, SNES_to_NES) 
+N_PZ_68,net=SNES_to_NES: PINT ( timer<3>.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (timer<3>.CLK, SNES_to_NES) 
+N_PZ_71,net=SNES_to_NES: PINT ( timer<4>.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (timer<4>.CLK, SNES_to_NES) 
+N_PZ_74,net=SNES_to_NES: PINT ( timer<5>.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (timer<5>.CLK, SNES_to_NES) 
+N_PZ_77,net=SNES_to_NES: PINT ( timer<6>.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (timer<6>.CLK, SNES_to_NES) 
+N_PZ_80,net=SNES_to_NES: PINT ( timer<7>.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (timer<7>.CLK, SNES_to_NES) 
+N_PZ_83,net=SNES_to_NES: PINT ( timer<8>.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (timer<8>.CLK, SNES_to_NES) 
+N_PZ_86,net=SNES_to_NES: PINT ( timer<9>.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (timer<9>.CLK, SNES_to_NES) 
+N_PZ_87,net=SNES_to_NES: PINT ( ab_mask<0>.D )
+  <--2--  (timer<19>.Q, SNES_to_NES) (snes_button_s<9>.Q, SNES_to_NES)
+  --1--> (ab_mask<0>.D, SNES_to_NES) 
+N_PZ_88,net=SNES_to_NES: PINT ( ab_mask<0>.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (ab_mask<0>.CLK, SNES_to_NES) 
+N_PZ_89,net=SNES_to_NES: PINT ( ab_mask<1>.D )
+  <--2--  (timer<19>.Q, SNES_to_NES) (snes_button_s<1>.Q, SNES_to_NES)
+  --1--> (ab_mask<1>.D, SNES_to_NES) 
+N_PZ_90,net=SNES_to_NES: PINT ( ab_mask<1>.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (ab_mask<1>.CLK, SNES_to_NES) 
+N_PZ_91,net=SNES_to_NES: PINT ( prev_nes_clk.D )
+  <--1--  (nes_clk_s.Q, SNES_to_NES)
+  --1--> (prev_nes_clk.D, SNES_to_NES) 
+N_PZ_92,net=SNES_to_NES: PINT ( prev_nes_clk.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (prev_nes_clk.CLK, SNES_to_NES) 
+N_PZ_93,net=SNES_to_NES: PINT ( prev_nes_latch.D )
+  <--1--  (nes_latch_s.Q, SNES_to_NES)
+  --1--> (prev_nes_latch.D, SNES_to_NES) 
+N_PZ_94,net=SNES_to_NES: PINT ( prev_nes_latch.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (prev_nes_latch.CLK, SNES_to_NES) 
+N_PZ_95,net=SNES_to_NES: PINT ( snes_button_s<0>.D )
+  <--1--  (snes_button<0>, SNES_to_NES)
+  --1--> (snes_button_s<0>.D, SNES_to_NES) 
+N_PZ_96,net=SNES_to_NES: PINT ( snes_button_s<0>.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (snes_button_s<0>.CLK, SNES_to_NES) 
+N_PZ_97,net=SNES_to_NES: PINT ( snes_button_s<10>.D )
+  <--1--  (snes_button<10>, SNES_to_NES)
+  --1--> (snes_button_s<10>.D, SNES_to_NES) 
+N_PZ_98,net=SNES_to_NES: PINT ( snes_button_s<10>.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (snes_button_s<10>.CLK, SNES_to_NES) 
+N_PZ_99,net=SNES_to_NES: PINT ( snes_button_s<11>.D )
+  <--1--  (snes_button<11>, SNES_to_NES)
+  --1--> (snes_button_s<11>.D, SNES_to_NES) 
+N_PZ_100,net=SNES_to_NES: PINT ( snes_button_s<11>.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (snes_button_s<11>.CLK, SNES_to_NES) 
+N_PZ_101,net=SNES_to_NES: PINT ( snes_button_s<1>.D )
+  <--1--  (snes_button<1>, SNES_to_NES)
+  --1--> (snes_button_s<1>.D, SNES_to_NES) 
+N_PZ_102,net=SNES_to_NES: PINT ( snes_button_s<1>.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (snes_button_s<1>.CLK, SNES_to_NES) 
+N_PZ_103,net=SNES_to_NES: PINT ( snes_button_s<2>.D )
+  <--1--  (snes_button<2>, SNES_to_NES)
+  --1--> (snes_button_s<2>.D, SNES_to_NES) 
+N_PZ_104,net=SNES_to_NES: PINT ( snes_button_s<2>.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (snes_button_s<2>.CLK, SNES_to_NES) 
+N_PZ_105,net=SNES_to_NES: PINT ( snes_button_s<3>.D )
+  <--1--  (snes_button<3>, SNES_to_NES)
+  --1--> (snes_button_s<3>.D, SNES_to_NES) 
+N_PZ_106,net=SNES_to_NES: PINT ( snes_button_s<3>.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (snes_button_s<3>.CLK, SNES_to_NES) 
+N_PZ_107,net=SNES_to_NES: PINT ( snes_button_s<4>.D )
+  <--1--  (snes_button<4>, SNES_to_NES)
+  --1--> (snes_button_s<4>.D, SNES_to_NES) 
+N_PZ_108,net=SNES_to_NES: PINT ( snes_button_s<4>.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (snes_button_s<4>.CLK, SNES_to_NES) 
+N_PZ_109,net=SNES_to_NES: PINT ( snes_button_s<5>.D )
+  <--1--  (snes_button<5>, SNES_to_NES)
+  --1--> (snes_button_s<5>.D, SNES_to_NES) 
+N_PZ_110,net=SNES_to_NES: PINT ( snes_button_s<5>.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (snes_button_s<5>.CLK, SNES_to_NES) 
+N_PZ_111,net=SNES_to_NES: PINT ( snes_button_s<6>.D )
+  <--1--  (snes_button<6>, SNES_to_NES)
+  --1--> (snes_button_s<6>.D, SNES_to_NES) 
+N_PZ_112,net=SNES_to_NES: PINT ( snes_button_s<6>.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (snes_button_s<6>.CLK, SNES_to_NES) 
+N_PZ_113,net=SNES_to_NES: PINT ( snes_button_s<7>.D )
+  <--1--  (snes_button<7>, SNES_to_NES)
+  --1--> (snes_button_s<7>.D, SNES_to_NES) 
+N_PZ_114,net=SNES_to_NES: PINT ( snes_button_s<7>.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (snes_button_s<7>.CLK, SNES_to_NES) 
+N_PZ_115,net=SNES_to_NES: PINT ( snes_button_s<8>.D )
+  <--1--  (snes_button<8>, SNES_to_NES)
+  --1--> (snes_button_s<8>.D, SNES_to_NES) 
+N_PZ_116,net=SNES_to_NES: PINT ( snes_button_s<8>.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (snes_button_s<8>.CLK, SNES_to_NES) 
+N_PZ_117,net=SNES_to_NES: PINT ( snes_button_s<9>.D )
+  <--1--  (snes_button<9>, SNES_to_NES)
+  --1--> (snes_button_s<9>.D, SNES_to_NES) 
+N_PZ_118,net=SNES_to_NES: PINT ( snes_button_s<9>.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (snes_button_s<9>.CLK, SNES_to_NES) 
+N_PZ_119,net=SNES_to_NES: PINT ( nes_data_q.D )
+  <--1--  (nes_shift<0>.Q, SNES_to_NES)
+  --1--> (nes_data_q.D, SNES_to_NES) 
+N_PZ_120,net=SNES_to_NES: PINT ( nes_data_q.CLK )
+  <--1--  (clk, SNES_to_NES)
+  --1--> (nes_data_q.CLK, SNES_to_NES) 
+nes_shift<0>.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_1, SNES_to_NES)
+  --0--> 
+nes_shift<1>.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_4, SNES_to_NES)
+  --0--> 
+nes_shift<2>.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_7, SNES_to_NES)
+  --0--> 
+nes_shift<3>.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_10, SNES_to_NES)
+  --0--> 
+nes_shift<4>.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_13, SNES_to_NES)
+  --0--> 
+nes_shift<5>.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_16, SNES_to_NES)
+  --0--> 
+nes_shift<6>.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_19, SNES_to_NES)
+  --0--> 
+nes_shift<7>.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_22, SNES_to_NES)
+  --0--> 
+timer<0>.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_25, SNES_to_NES)
+  --0--> 
+timer<19>.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_28, SNES_to_NES)
+  --0--> 
+nes_clk_s.D,net=SNES_to_NES: PO
+  <--1--  (N_PZ_29, SNES_to_NES)
+  --0--> 
+nes_clk_s.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_30, SNES_to_NES)
+  --0--> 
+nes_latch_s.D,net=SNES_to_NES: PO
+  <--1--  (N_PZ_31, SNES_to_NES)
+  --0--> 
+nes_latch_s.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_32, SNES_to_NES)
+  --0--> 
+timer<10>.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_35, SNES_to_NES)
+  --0--> 
+timer<11>.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_38, SNES_to_NES)
+  --0--> 
+timer<12>.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_41, SNES_to_NES)
+  --0--> 
+timer<13>.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_44, SNES_to_NES)
+  --0--> 
+timer<14>.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_47, SNES_to_NES)
+  --0--> 
+timer<15>.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_50, SNES_to_NES)
+  --0--> 
+timer<16>.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_53, SNES_to_NES)
+  --0--> 
+timer<17>.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_56, SNES_to_NES)
+  --0--> 
+timer<18>.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_59, SNES_to_NES)
+  --0--> 
+timer<1>.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_62, SNES_to_NES)
+  --0--> 
+timer<2>.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_65, SNES_to_NES)
+  --0--> 
+timer<3>.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_68, SNES_to_NES)
+  --0--> 
+timer<4>.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_71, SNES_to_NES)
+  --0--> 
+timer<5>.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_74, SNES_to_NES)
+  --0--> 
+timer<6>.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_77, SNES_to_NES)
+  --0--> 
+timer<7>.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_80, SNES_to_NES)
+  --0--> 
+timer<8>.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_83, SNES_to_NES)
+  --0--> 
+timer<9>.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_86, SNES_to_NES)
+  --0--> 
+ab_mask<0>.D,net=SNES_to_NES: PO
+  <--1--  (N_PZ_87, SNES_to_NES)
+  --0--> 
+ab_mask<0>.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_88, SNES_to_NES)
+  --0--> 
+ab_mask<1>.D,net=SNES_to_NES: PO
+  <--1--  (N_PZ_89, SNES_to_NES)
+  --0--> 
+ab_mask<1>.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_90, SNES_to_NES)
+  --0--> 
+prev_nes_clk.D,net=SNES_to_NES: PO
+  <--1--  (N_PZ_91, SNES_to_NES)
+  --0--> 
+prev_nes_clk.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_92, SNES_to_NES)
+  --0--> 
+prev_nes_latch.D,net=SNES_to_NES: PO
+  <--1--  (N_PZ_93, SNES_to_NES)
+  --0--> 
+prev_nes_latch.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_94, SNES_to_NES)
+  --0--> 
+snes_button_s<0>.D,net=SNES_to_NES: PO
+  <--1--  (N_PZ_95, SNES_to_NES)
+  --0--> 
+snes_button_s<0>.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_96, SNES_to_NES)
+  --0--> 
+snes_button_s<10>.D,net=SNES_to_NES: PO
+  <--1--  (N_PZ_97, SNES_to_NES)
+  --0--> 
+snes_button_s<10>.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_98, SNES_to_NES)
+  --0--> 
+snes_button_s<11>.D,net=SNES_to_NES: PO
+  <--1--  (N_PZ_99, SNES_to_NES)
+  --0--> 
+snes_button_s<11>.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_100, SNES_to_NES)
+  --0--> 
+snes_button_s<1>.D,net=SNES_to_NES: PO
+  <--1--  (N_PZ_101, SNES_to_NES)
+  --0--> 
+snes_button_s<1>.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_102, SNES_to_NES)
+  --0--> 
+snes_button_s<2>.D,net=SNES_to_NES: PO
+  <--1--  (N_PZ_103, SNES_to_NES)
+  --0--> 
+snes_button_s<2>.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_104, SNES_to_NES)
+  --0--> 
+snes_button_s<3>.D,net=SNES_to_NES: PO
+  <--1--  (N_PZ_105, SNES_to_NES)
+  --0--> 
+snes_button_s<3>.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_106, SNES_to_NES)
+  --0--> 
+snes_button_s<4>.D,net=SNES_to_NES: PO
+  <--1--  (N_PZ_107, SNES_to_NES)
+  --0--> 
+snes_button_s<4>.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_108, SNES_to_NES)
+  --0--> 
+snes_button_s<5>.D,net=SNES_to_NES: PO
+  <--1--  (N_PZ_109, SNES_to_NES)
+  --0--> 
+snes_button_s<5>.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_110, SNES_to_NES)
+  --0--> 
+snes_button_s<6>.D,net=SNES_to_NES: PO
+  <--1--  (N_PZ_111, SNES_to_NES)
+  --0--> 
+snes_button_s<6>.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_112, SNES_to_NES)
+  --0--> 
+snes_button_s<7>.D,net=SNES_to_NES: PO
+  <--1--  (N_PZ_113, SNES_to_NES)
+  --0--> 
+snes_button_s<7>.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_114, SNES_to_NES)
+  --0--> 
+snes_button_s<8>.D,net=SNES_to_NES: PO
+  <--1--  (N_PZ_115, SNES_to_NES)
+  --0--> 
+snes_button_s<8>.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_116, SNES_to_NES)
+  --0--> 
+snes_button_s<9>.D,net=SNES_to_NES: PO
+  <--1--  (N_PZ_117, SNES_to_NES)
+  --0--> 
+snes_button_s<9>.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_118, SNES_to_NES)
+  --0--> 
+nes_data_q.D,net=SNES_to_NES: PO
+  <--1--  (N_PZ_119, SNES_to_NES)
+  --0--> 
+nes_data_q.CLK,net=SNES_to_NES: PO
+  <--1--  (N_PZ_120, SNES_to_NES)
+  --0--> 
+nes_shift<0>.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --2--> (N_PZ_119, SNES_to_NES) (N_PZ_227, SNES_to_NES) 
+nes_shift<1>.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --2--> (N_PZ_227, SNES_to_NES) (N_PZ_228, SNES_to_NES) 
+nes_shift<2>.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --2--> (N_PZ_181, SNES_to_NES) (N_PZ_228, SNES_to_NES) 
+nes_shift<3>.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --2--> (N_PZ_181, SNES_to_NES) (N_PZ_182, SNES_to_NES) 
+nes_shift<4>.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --2--> (N_PZ_182, SNES_to_NES) (N_PZ_183, SNES_to_NES) 
+nes_shift<5>.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --2--> (N_PZ_183, SNES_to_NES) (N_PZ_184, SNES_to_NES) 
+nes_shift<6>.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --2--> (N_PZ_184, SNES_to_NES) (N_PZ_185, SNES_to_NES) 
+nes_shift<7>.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --2--> (N_PZ_185, SNES_to_NES) (N_PZ_187, SNES_to_NES) 
+timer<0>.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --19--> (N_PZ_170, SNES_to_NES) (N_PZ_171, SNES_to_NES) (N_PZ_172, SNES_to_NES)  
+          (N_PZ_173, SNES_to_NES) (N_PZ_174, SNES_to_NES) (N_PZ_175, SNES_to_NES)  
+          (N_PZ_176, SNES_to_NES) (N_PZ_177, SNES_to_NES) (N_PZ_178, SNES_to_NES)  
+          (N_PZ_161, SNES_to_NES) (N_PZ_162, SNES_to_NES) (N_PZ_163, SNES_to_NES)  
+          (N_PZ_164, SNES_to_NES) (N_PZ_165, SNES_to_NES) (N_PZ_166, SNES_to_NES)  
+          (N_PZ_167, SNES_to_NES) (N_PZ_160, SNES_to_NES) (N_PZ_168, SNES_to_NES)  
+          (N_PZ_169, SNES_to_NES) 
+nes_clk_s.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --9--> (N_PZ_91, SNES_to_NES) (N_PZ_181, SNES_to_NES) (N_PZ_182, SNES_to_NES)  
+         (N_PZ_183, SNES_to_NES) (N_PZ_184, SNES_to_NES) (N_PZ_185, SNES_to_NES)  
+         (N_PZ_187, SNES_to_NES) (N_PZ_227, SNES_to_NES) (N_PZ_228, SNES_to_NES) 
+nes_latch_s.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --2--> (N_PZ_93, SNES_to_NES) (N_PZ_255, SNES_to_NES) 
+ab_mask<0>.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --1--> (N_PZ_227, SNES_to_NES) 
+ab_mask<1>.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --1--> (N_PZ_228, SNES_to_NES) 
+prev_nes_clk.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --8--> (N_PZ_181, SNES_to_NES) (N_PZ_182, SNES_to_NES) (N_PZ_183, SNES_to_NES)  
+         (N_PZ_184, SNES_to_NES) (N_PZ_185, SNES_to_NES) (N_PZ_187, SNES_to_NES)  
+         (N_PZ_227, SNES_to_NES) (N_PZ_228, SNES_to_NES) 
+prev_nes_latch.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --1--> (N_PZ_255, SNES_to_NES) 
+snes_button_s<0>.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --1--> (N_PZ_228, SNES_to_NES) 
+snes_button_s<10>.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --1--> (N_PZ_227, SNES_to_NES) 
+snes_button_s<11>.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --1--> (N_PZ_228, SNES_to_NES) 
+snes_button_s<1>.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --1--> (N_PZ_89, SNES_to_NES) 
+snes_button_s<2>.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --1--> (N_PZ_181, SNES_to_NES) 
+snes_button_s<3>.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --1--> (N_PZ_182, SNES_to_NES) 
+snes_button_s<4>.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --1--> (N_PZ_183, SNES_to_NES) 
+snes_button_s<5>.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --1--> (N_PZ_184, SNES_to_NES) 
+snes_button_s<6>.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --1--> (N_PZ_185, SNES_to_NES) 
+snes_button_s<7>.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --1--> (N_PZ_187, SNES_to_NES) 
+snes_button_s<8>.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --1--> (N_PZ_227, SNES_to_NES) 
+snes_button_s<9>.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --1--> (N_PZ_87, SNES_to_NES) 
+timer<19>.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --2--> (N_PZ_87, SNES_to_NES) (N_PZ_89, SNES_to_NES) 
+timer<10>.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --9--> (N_PZ_162, SNES_to_NES) (N_PZ_163, SNES_to_NES) (N_PZ_164, SNES_to_NES)  
+         (N_PZ_165, SNES_to_NES) (N_PZ_166, SNES_to_NES) (N_PZ_167, SNES_to_NES)  
+         (N_PZ_160, SNES_to_NES) (N_PZ_168, SNES_to_NES) (N_PZ_169, SNES_to_NES) 
+timer<11>.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --8--> (N_PZ_163, SNES_to_NES) (N_PZ_164, SNES_to_NES) (N_PZ_165, SNES_to_NES)  
+         (N_PZ_166, SNES_to_NES) (N_PZ_167, SNES_to_NES) (N_PZ_160, SNES_to_NES)  
+         (N_PZ_168, SNES_to_NES) (N_PZ_169, SNES_to_NES) 
+timer<12>.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --7--> (N_PZ_164, SNES_to_NES) (N_PZ_165, SNES_to_NES) (N_PZ_166, SNES_to_NES)  
+         (N_PZ_167, SNES_to_NES) (N_PZ_160, SNES_to_NES) (N_PZ_168, SNES_to_NES)  
+         (N_PZ_169, SNES_to_NES) 
+timer<13>.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --6--> (N_PZ_165, SNES_to_NES) (N_PZ_166, SNES_to_NES) (N_PZ_167, SNES_to_NES)  
+         (N_PZ_160, SNES_to_NES) (N_PZ_168, SNES_to_NES) (N_PZ_169, SNES_to_NES) 
+timer<14>.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --5--> (N_PZ_166, SNES_to_NES) (N_PZ_167, SNES_to_NES) (N_PZ_160, SNES_to_NES)  
+         (N_PZ_168, SNES_to_NES) (N_PZ_169, SNES_to_NES) 
+timer<15>.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --4--> (N_PZ_167, SNES_to_NES) (N_PZ_160, SNES_to_NES) (N_PZ_168, SNES_to_NES)  
+         (N_PZ_169, SNES_to_NES) 
+timer<16>.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --3--> (N_PZ_160, SNES_to_NES) (N_PZ_168, SNES_to_NES) (N_PZ_169, SNES_to_NES) 
+timer<17>.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --2--> (N_PZ_160, SNES_to_NES) (N_PZ_169, SNES_to_NES) 
+timer<18>.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --1--> (N_PZ_160, SNES_to_NES) 
+timer<1>.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --18--> (N_PZ_171, SNES_to_NES) (N_PZ_172, SNES_to_NES) (N_PZ_173, SNES_to_NES)  
+          (N_PZ_174, SNES_to_NES) (N_PZ_175, SNES_to_NES) (N_PZ_176, SNES_to_NES)  
+          (N_PZ_177, SNES_to_NES) (N_PZ_178, SNES_to_NES) (N_PZ_161, SNES_to_NES)  
+          (N_PZ_162, SNES_to_NES) (N_PZ_163, SNES_to_NES) (N_PZ_164, SNES_to_NES)  
+          (N_PZ_165, SNES_to_NES) (N_PZ_166, SNES_to_NES) (N_PZ_167, SNES_to_NES)  
+          (N_PZ_160, SNES_to_NES) (N_PZ_168, SNES_to_NES) (N_PZ_169, SNES_to_NES) 
+timer<2>.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --17--> (N_PZ_172, SNES_to_NES) (N_PZ_173, SNES_to_NES) (N_PZ_174, SNES_to_NES)  
+          (N_PZ_175, SNES_to_NES) (N_PZ_176, SNES_to_NES) (N_PZ_177, SNES_to_NES)  
+          (N_PZ_178, SNES_to_NES) (N_PZ_161, SNES_to_NES) (N_PZ_162, SNES_to_NES)  
+          (N_PZ_163, SNES_to_NES) (N_PZ_164, SNES_to_NES) (N_PZ_165, SNES_to_NES)  
+          (N_PZ_166, SNES_to_NES) (N_PZ_167, SNES_to_NES) (N_PZ_160, SNES_to_NES)  
+          (N_PZ_168, SNES_to_NES) (N_PZ_169, SNES_to_NES) 
+timer<3>.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --16--> (N_PZ_173, SNES_to_NES) (N_PZ_174, SNES_to_NES) (N_PZ_175, SNES_to_NES)  
+          (N_PZ_176, SNES_to_NES) (N_PZ_177, SNES_to_NES) (N_PZ_178, SNES_to_NES)  
+          (N_PZ_161, SNES_to_NES) (N_PZ_162, SNES_to_NES) (N_PZ_163, SNES_to_NES)  
+          (N_PZ_164, SNES_to_NES) (N_PZ_165, SNES_to_NES) (N_PZ_166, SNES_to_NES)  
+          (N_PZ_167, SNES_to_NES) (N_PZ_160, SNES_to_NES) (N_PZ_168, SNES_to_NES)  
+          (N_PZ_169, SNES_to_NES) 
+timer<4>.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --15--> (N_PZ_174, SNES_to_NES) (N_PZ_175, SNES_to_NES) (N_PZ_176, SNES_to_NES)  
+          (N_PZ_177, SNES_to_NES) (N_PZ_178, SNES_to_NES) (N_PZ_161, SNES_to_NES)  
+          (N_PZ_162, SNES_to_NES) (N_PZ_163, SNES_to_NES) (N_PZ_164, SNES_to_NES)  
+          (N_PZ_165, SNES_to_NES) (N_PZ_166, SNES_to_NES) (N_PZ_167, SNES_to_NES)  
+          (N_PZ_160, SNES_to_NES) (N_PZ_168, SNES_to_NES) (N_PZ_169, SNES_to_NES) 
+timer<5>.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --14--> (N_PZ_175, SNES_to_NES) (N_PZ_176, SNES_to_NES) (N_PZ_177, SNES_to_NES)  
+          (N_PZ_178, SNES_to_NES) (N_PZ_161, SNES_to_NES) (N_PZ_162, SNES_to_NES)  
+          (N_PZ_163, SNES_to_NES) (N_PZ_164, SNES_to_NES) (N_PZ_165, SNES_to_NES)  
+          (N_PZ_166, SNES_to_NES) (N_PZ_167, SNES_to_NES) (N_PZ_160, SNES_to_NES)  
+          (N_PZ_168, SNES_to_NES) (N_PZ_169, SNES_to_NES) 
+timer<6>.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --13--> (N_PZ_176, SNES_to_NES) (N_PZ_177, SNES_to_NES) (N_PZ_178, SNES_to_NES)  
+          (N_PZ_161, SNES_to_NES) (N_PZ_162, SNES_to_NES) (N_PZ_163, SNES_to_NES)  
+          (N_PZ_164, SNES_to_NES) (N_PZ_165, SNES_to_NES) (N_PZ_166, SNES_to_NES)  
+          (N_PZ_167, SNES_to_NES) (N_PZ_160, SNES_to_NES) (N_PZ_168, SNES_to_NES)  
+          (N_PZ_169, SNES_to_NES) 
+timer<7>.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --12--> (N_PZ_177, SNES_to_NES) (N_PZ_178, SNES_to_NES) (N_PZ_161, SNES_to_NES)  
+          (N_PZ_162, SNES_to_NES) (N_PZ_163, SNES_to_NES) (N_PZ_164, SNES_to_NES)  
+          (N_PZ_165, SNES_to_NES) (N_PZ_166, SNES_to_NES) (N_PZ_167, SNES_to_NES)  
+          (N_PZ_160, SNES_to_NES) (N_PZ_168, SNES_to_NES) (N_PZ_169, SNES_to_NES) 
+timer<8>.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --11--> (N_PZ_178, SNES_to_NES) (N_PZ_161, SNES_to_NES) (N_PZ_162, SNES_to_NES)  
+          (N_PZ_163, SNES_to_NES) (N_PZ_164, SNES_to_NES) (N_PZ_165, SNES_to_NES)  
+          (N_PZ_166, SNES_to_NES) (N_PZ_167, SNES_to_NES) (N_PZ_160, SNES_to_NES)  
+          (N_PZ_168, SNES_to_NES) (N_PZ_169, SNES_to_NES) 
+timer<9>.Q,net=SNES_to_NES: PI
+  <--0-- 
+  --10--> (N_PZ_161, SNES_to_NES) (N_PZ_162, SNES_to_NES) (N_PZ_163, SNES_to_NES)  
+          (N_PZ_164, SNES_to_NES) (N_PZ_165, SNES_to_NES) (N_PZ_166, SNES_to_NES)  
+          (N_PZ_167, SNES_to_NES) (N_PZ_160, SNES_to_NES) (N_PZ_168, SNES_to_NES)  
+          (N_PZ_169, SNES_to_NES) 
+N_PZ_140,net=SNES_to_NES: PINT ( timer<0>.T )
+  <--0-- 
+  --1--> (timer<0>.T, SNES_to_NES) 
+N_PZ_160,net=SNES_to_NES: PINT ( timer<19>.T )
+  <--19--  (timer<0>.Q, SNES_to_NES) (timer<10>.Q, SNES_to_NES) 
+           (timer<11>.Q, SNES_to_NES) (timer<12>.Q, SNES_to_NES) 
+           (timer<13>.Q, SNES_to_NES) (timer<14>.Q, SNES_to_NES) 
+           (timer<15>.Q, SNES_to_NES) (timer<16>.Q, SNES_to_NES) 
+           (timer<17>.Q, SNES_to_NES) (timer<18>.Q, SNES_to_NES) 
+           (timer<1>.Q, SNES_to_NES) (timer<2>.Q, SNES_to_NES) 
+           (timer<3>.Q, SNES_to_NES) (timer<4>.Q, SNES_to_NES) 
+           (timer<5>.Q, SNES_to_NES) (timer<6>.Q, SNES_to_NES) 
+           (timer<7>.Q, SNES_to_NES) (timer<8>.Q, SNES_to_NES) 
+           (timer<9>.Q, SNES_to_NES)
+  --1--> (timer<19>.T, SNES_to_NES) 
+N_PZ_161,net=SNES_to_NES: PINT ( timer<10>.T )
+  <--10--  (timer<0>.Q, SNES_to_NES) (timer<1>.Q, SNES_to_NES) 
+           (timer<2>.Q, SNES_to_NES) (timer<3>.Q, SNES_to_NES) 
+           (timer<4>.Q, SNES_to_NES) (timer<5>.Q, SNES_to_NES) 
+           (timer<6>.Q, SNES_to_NES) (timer<7>.Q, SNES_to_NES) 
+           (timer<8>.Q, SNES_to_NES) (timer<9>.Q, SNES_to_NES)
+  --1--> (timer<10>.T, SNES_to_NES) 
+N_PZ_162,net=SNES_to_NES: PINT ( timer<11>.T )
+  <--11--  (timer<0>.Q, SNES_to_NES) (timer<10>.Q, SNES_to_NES) 
+           (timer<1>.Q, SNES_to_NES) (timer<2>.Q, SNES_to_NES) 
+           (timer<3>.Q, SNES_to_NES) (timer<4>.Q, SNES_to_NES) 
+           (timer<5>.Q, SNES_to_NES) (timer<6>.Q, SNES_to_NES) 
+           (timer<7>.Q, SNES_to_NES) (timer<8>.Q, SNES_to_NES) 
+           (timer<9>.Q, SNES_to_NES)
+  --1--> (timer<11>.T, SNES_to_NES) 
+N_PZ_163,net=SNES_to_NES: PINT ( timer<12>.T )
+  <--12--  (timer<0>.Q, SNES_to_NES) (timer<10>.Q, SNES_to_NES) 
+           (timer<11>.Q, SNES_to_NES) (timer<1>.Q, SNES_to_NES) 
+           (timer<2>.Q, SNES_to_NES) (timer<3>.Q, SNES_to_NES) 
+           (timer<4>.Q, SNES_to_NES) (timer<5>.Q, SNES_to_NES) 
+           (timer<6>.Q, SNES_to_NES) (timer<7>.Q, SNES_to_NES) 
+           (timer<8>.Q, SNES_to_NES) (timer<9>.Q, SNES_to_NES)
+  --1--> (timer<12>.T, SNES_to_NES) 
+N_PZ_164,net=SNES_to_NES: PINT ( timer<13>.T )
+  <--13--  (timer<0>.Q, SNES_to_NES) (timer<10>.Q, SNES_to_NES) 
+           (timer<11>.Q, SNES_to_NES) (timer<12>.Q, SNES_to_NES) 
+           (timer<1>.Q, SNES_to_NES) (timer<2>.Q, SNES_to_NES) 
+           (timer<3>.Q, SNES_to_NES) (timer<4>.Q, SNES_to_NES) 
+           (timer<5>.Q, SNES_to_NES) (timer<6>.Q, SNES_to_NES) 
+           (timer<7>.Q, SNES_to_NES) (timer<8>.Q, SNES_to_NES) 
+           (timer<9>.Q, SNES_to_NES)
+  --1--> (timer<13>.T, SNES_to_NES) 
+N_PZ_165,net=SNES_to_NES: PINT ( timer<14>.T )
+  <--14--  (timer<0>.Q, SNES_to_NES) (timer<10>.Q, SNES_to_NES) 
+           (timer<11>.Q, SNES_to_NES) (timer<12>.Q, SNES_to_NES) 
+           (timer<13>.Q, SNES_to_NES) (timer<1>.Q, SNES_to_NES) 
+           (timer<2>.Q, SNES_to_NES) (timer<3>.Q, SNES_to_NES) 
+           (timer<4>.Q, SNES_to_NES) (timer<5>.Q, SNES_to_NES) 
+           (timer<6>.Q, SNES_to_NES) (timer<7>.Q, SNES_to_NES) 
+           (timer<8>.Q, SNES_to_NES) (timer<9>.Q, SNES_to_NES)
+  --1--> (timer<14>.T, SNES_to_NES) 
+N_PZ_166,net=SNES_to_NES: PINT ( timer<15>.T )
+  <--15--  (timer<0>.Q, SNES_to_NES) (timer<10>.Q, SNES_to_NES) 
+           (timer<11>.Q, SNES_to_NES) (timer<12>.Q, SNES_to_NES) 
+           (timer<13>.Q, SNES_to_NES) (timer<14>.Q, SNES_to_NES) 
+           (timer<1>.Q, SNES_to_NES) (timer<2>.Q, SNES_to_NES) 
+           (timer<3>.Q, SNES_to_NES) (timer<4>.Q, SNES_to_NES) 
+           (timer<5>.Q, SNES_to_NES) (timer<6>.Q, SNES_to_NES) 
+           (timer<7>.Q, SNES_to_NES) (timer<8>.Q, SNES_to_NES) 
+           (timer<9>.Q, SNES_to_NES)
+  --1--> (timer<15>.T, SNES_to_NES) 
+N_PZ_167,net=SNES_to_NES: PINT ( timer<16>.T )
+  <--16--  (timer<0>.Q, SNES_to_NES) (timer<10>.Q, SNES_to_NES) 
+           (timer<11>.Q, SNES_to_NES) (timer<12>.Q, SNES_to_NES) 
+           (timer<13>.Q, SNES_to_NES) (timer<14>.Q, SNES_to_NES) 
+           (timer<15>.Q, SNES_to_NES) (timer<1>.Q, SNES_to_NES) 
+           (timer<2>.Q, SNES_to_NES) (timer<3>.Q, SNES_to_NES) 
+           (timer<4>.Q, SNES_to_NES) (timer<5>.Q, SNES_to_NES) 
+           (timer<6>.Q, SNES_to_NES) (timer<7>.Q, SNES_to_NES) 
+           (timer<8>.Q, SNES_to_NES) (timer<9>.Q, SNES_to_NES)
+  --1--> (timer<16>.T, SNES_to_NES) 
+N_PZ_168,net=SNES_to_NES: PINT ( timer<17>.T )
+  <--17--  (timer<0>.Q, SNES_to_NES) (timer<10>.Q, SNES_to_NES) 
+           (timer<11>.Q, SNES_to_NES) (timer<12>.Q, SNES_to_NES) 
+           (timer<13>.Q, SNES_to_NES) (timer<14>.Q, SNES_to_NES) 
+           (timer<15>.Q, SNES_to_NES) (timer<16>.Q, SNES_to_NES) 
+           (timer<1>.Q, SNES_to_NES) (timer<2>.Q, SNES_to_NES) 
+           (timer<3>.Q, SNES_to_NES) (timer<4>.Q, SNES_to_NES) 
+           (timer<5>.Q, SNES_to_NES) (timer<6>.Q, SNES_to_NES) 
+           (timer<7>.Q, SNES_to_NES) (timer<8>.Q, SNES_to_NES) 
+           (timer<9>.Q, SNES_to_NES)
+  --1--> (timer<17>.T, SNES_to_NES) 
+N_PZ_169,net=SNES_to_NES: PINT ( timer<18>.T )
+  <--18--  (timer<0>.Q, SNES_to_NES) (timer<10>.Q, SNES_to_NES) 
+           (timer<11>.Q, SNES_to_NES) (timer<12>.Q, SNES_to_NES) 
+           (timer<13>.Q, SNES_to_NES) (timer<14>.Q, SNES_to_NES) 
+           (timer<15>.Q, SNES_to_NES) (timer<16>.Q, SNES_to_NES) 
+           (timer<17>.Q, SNES_to_NES) (timer<1>.Q, SNES_to_NES) 
+           (timer<2>.Q, SNES_to_NES) (timer<3>.Q, SNES_to_NES) 
+           (timer<4>.Q, SNES_to_NES) (timer<5>.Q, SNES_to_NES) 
+           (timer<6>.Q, SNES_to_NES) (timer<7>.Q, SNES_to_NES) 
+           (timer<8>.Q, SNES_to_NES) (timer<9>.Q, SNES_to_NES)
+  --1--> (timer<18>.T, SNES_to_NES) 
+N_PZ_170,net=SNES_to_NES: PINT ( timer<1>.T )
+  <--1--  (timer<0>.Q, SNES_to_NES)
+  --1--> (timer<1>.T, SNES_to_NES) 
+N_PZ_171,net=SNES_to_NES: PINT ( timer<2>.T )
+  <--2--  (timer<0>.Q, SNES_to_NES) (timer<1>.Q, SNES_to_NES)
+  --1--> (timer<2>.T, SNES_to_NES) 
+N_PZ_172,net=SNES_to_NES: PINT ( timer<3>.T )
+  <--3--  (timer<0>.Q, SNES_to_NES) (timer<1>.Q, SNES_to_NES) (timer<2>.Q, SNES_to_NES)
+  --1--> (timer<3>.T, SNES_to_NES) 
+N_PZ_173,net=SNES_to_NES: PINT ( timer<4>.T )
+  <--4--  (timer<0>.Q, SNES_to_NES) (timer<1>.Q, SNES_to_NES) (timer<2>.Q, SNES_to_NES) 
+          (timer<3>.Q, SNES_to_NES)
+  --1--> (timer<4>.T, SNES_to_NES) 
+N_PZ_174,net=SNES_to_NES: PINT ( timer<5>.T )
+  <--5--  (timer<0>.Q, SNES_to_NES) (timer<1>.Q, SNES_to_NES) (timer<2>.Q, SNES_to_NES) 
+          (timer<3>.Q, SNES_to_NES) (timer<4>.Q, SNES_to_NES)
+  --1--> (timer<5>.T, SNES_to_NES) 
+N_PZ_175,net=SNES_to_NES: PINT ( timer<6>.T )
+  <--6--  (timer<0>.Q, SNES_to_NES) (timer<1>.Q, SNES_to_NES) (timer<2>.Q, SNES_to_NES) 
+          (timer<3>.Q, SNES_to_NES) (timer<4>.Q, SNES_to_NES) (timer<5>.Q, SNES_to_NES)
+  --1--> (timer<6>.T, SNES_to_NES) 
+N_PZ_176,net=SNES_to_NES: PINT ( timer<7>.T )
+  <--7--  (timer<0>.Q, SNES_to_NES) (timer<1>.Q, SNES_to_NES) (timer<2>.Q, SNES_to_NES) 
+          (timer<3>.Q, SNES_to_NES) (timer<4>.Q, SNES_to_NES) (timer<5>.Q, SNES_to_NES) 
+          (timer<6>.Q, SNES_to_NES)
+  --1--> (timer<7>.T, SNES_to_NES) 
+N_PZ_177,net=SNES_to_NES: PINT ( timer<8>.T )
+  <--8--  (timer<0>.Q, SNES_to_NES) (timer<1>.Q, SNES_to_NES) (timer<2>.Q, SNES_to_NES) 
+          (timer<3>.Q, SNES_to_NES) (timer<4>.Q, SNES_to_NES) (timer<5>.Q, SNES_to_NES) 
+          (timer<6>.Q, SNES_to_NES) (timer<7>.Q, SNES_to_NES)
+  --1--> (timer<8>.T, SNES_to_NES) 
+N_PZ_178,net=SNES_to_NES: PINT ( timer<9>.T )
+  <--9--  (timer<0>.Q, SNES_to_NES) (timer<1>.Q, SNES_to_NES) (timer<2>.Q, SNES_to_NES) 
+          (timer<3>.Q, SNES_to_NES) (timer<4>.Q, SNES_to_NES) (timer<5>.Q, SNES_to_NES) 
+          (timer<6>.Q, SNES_to_NES) (timer<7>.Q, SNES_to_NES) (timer<8>.Q, SNES_to_NES)
+  --1--> (timer<9>.T, SNES_to_NES) 
+timer<0>.T,net=SNES_to_NES: PO
+  <--1--  (N_PZ_140, SNES_to_NES)
+  --0--> 
+timer<19>.T,net=SNES_to_NES: PO
+  <--1--  (N_PZ_160, SNES_to_NES)
+  --0--> 
+timer<10>.T,net=SNES_to_NES: PO
+  <--1--  (N_PZ_161, SNES_to_NES)
+  --0--> 
+timer<11>.T,net=SNES_to_NES: PO
+  <--1--  (N_PZ_162, SNES_to_NES)
+  --0--> 
+timer<12>.T,net=SNES_to_NES: PO
+  <--1--  (N_PZ_163, SNES_to_NES)
+  --0--> 
+timer<13>.T,net=SNES_to_NES: PO
+  <--1--  (N_PZ_164, SNES_to_NES)
+  --0--> 
+timer<14>.T,net=SNES_to_NES: PO
+  <--1--  (N_PZ_165, SNES_to_NES)
+  --0--> 
+timer<15>.T,net=SNES_to_NES: PO
+  <--1--  (N_PZ_166, SNES_to_NES)
+  --0--> 
+timer<16>.T,net=SNES_to_NES: PO
+  <--1--  (N_PZ_167, SNES_to_NES)
+  --0--> 
+timer<17>.T,net=SNES_to_NES: PO
+  <--1--  (N_PZ_168, SNES_to_NES)
+  --0--> 
+timer<18>.T,net=SNES_to_NES: PO
+  <--1--  (N_PZ_169, SNES_to_NES)
+  --0--> 
+timer<1>.T,net=SNES_to_NES: PO
+  <--1--  (N_PZ_170, SNES_to_NES)
+  --0--> 
+timer<2>.T,net=SNES_to_NES: PO
+  <--1--  (N_PZ_171, SNES_to_NES)
+  --0--> 
+timer<3>.T,net=SNES_to_NES: PO
+  <--1--  (N_PZ_172, SNES_to_NES)
+  --0--> 
+timer<4>.T,net=SNES_to_NES: PO
+  <--1--  (N_PZ_173, SNES_to_NES)
+  --0--> 
+timer<5>.T,net=SNES_to_NES: PO
+  <--1--  (N_PZ_174, SNES_to_NES)
+  --0--> 
+timer<6>.T,net=SNES_to_NES: PO
+  <--1--  (N_PZ_175, SNES_to_NES)
+  --0--> 
+timer<7>.T,net=SNES_to_NES: PO
+  <--1--  (N_PZ_176, SNES_to_NES)
+  --0--> 
+timer<8>.T,net=SNES_to_NES: PO
+  <--1--  (N_PZ_177, SNES_to_NES)
+  --0--> 
+timer<9>.T,net=SNES_to_NES: PO
+  <--1--  (N_PZ_178, SNES_to_NES)
+  --0--> 
+N_PZ_181,net=SNES_to_NES: PINT ( nes_shift<2>.T )
+  <--6--  (nes_shift<2>.Q, SNES_to_NES) (nes_shift<3>.Q, SNES_to_NES) 
+          (nes_clk_s.Q, SNES_to_NES) (prev_nes_clk.Q, SNES_to_NES) 
+          (snes_button_s<2>.Q, SNES_to_NES) (N_PZ_255, SNES_to_NES)
+  --1--> (nes_shift<2>.T, SNES_to_NES) 
+nes_shift<2>.T,net=SNES_to_NES: PO
+  <--1--  (N_PZ_181, SNES_to_NES)
+  --0--> 
+N_PZ_182,net=SNES_to_NES: PINT ( nes_shift<3>.T )
+  <--6--  (nes_shift<3>.Q, SNES_to_NES) (nes_shift<4>.Q, SNES_to_NES) 
+          (nes_clk_s.Q, SNES_to_NES) (prev_nes_clk.Q, SNES_to_NES) 
+          (snes_button_s<3>.Q, SNES_to_NES) (N_PZ_255, SNES_to_NES)
+  --1--> (nes_shift<3>.T, SNES_to_NES) 
+nes_shift<3>.T,net=SNES_to_NES: PO
+  <--1--  (N_PZ_182, SNES_to_NES)
+  --0--> 
+N_PZ_183,net=SNES_to_NES: PINT ( nes_shift<4>.T )
+  <--6--  (nes_shift<4>.Q, SNES_to_NES) (nes_shift<5>.Q, SNES_to_NES) 
+          (nes_clk_s.Q, SNES_to_NES) (prev_nes_clk.Q, SNES_to_NES) 
+          (snes_button_s<4>.Q, SNES_to_NES) (N_PZ_255, SNES_to_NES)
+  --1--> (nes_shift<4>.T, SNES_to_NES) 
+nes_shift<4>.T,net=SNES_to_NES: PO
+  <--1--  (N_PZ_183, SNES_to_NES)
+  --0--> 
+N_PZ_184,net=SNES_to_NES: PINT ( nes_shift<5>.T )
+  <--6--  (nes_shift<5>.Q, SNES_to_NES) (nes_shift<6>.Q, SNES_to_NES) 
+          (nes_clk_s.Q, SNES_to_NES) (prev_nes_clk.Q, SNES_to_NES) 
+          (snes_button_s<5>.Q, SNES_to_NES) (N_PZ_255, SNES_to_NES)
+  --1--> (nes_shift<5>.T, SNES_to_NES) 
+nes_shift<5>.T,net=SNES_to_NES: PO
+  <--1--  (N_PZ_184, SNES_to_NES)
+  --0--> 
+N_PZ_185,net=SNES_to_NES: PINT ( nes_shift<6>.T )
+  <--6--  (nes_shift<6>.Q, SNES_to_NES) (nes_shift<7>.Q, SNES_to_NES) 
+          (nes_clk_s.Q, SNES_to_NES) (prev_nes_clk.Q, SNES_to_NES) 
+          (snes_button_s<6>.Q, SNES_to_NES) (N_PZ_255, SNES_to_NES)
+  --1--> (nes_shift<6>.T, SNES_to_NES) 
+nes_shift<6>.T,net=SNES_to_NES: PO
+  <--1--  (N_PZ_185, SNES_to_NES)
+  --0--> 
+N_PZ_187,net=SNES_to_NES: PINT ( nes_shift<7>.T )
+  <--5--  (nes_shift<7>.Q, SNES_to_NES) (nes_clk_s.Q, SNES_to_NES) 
+          (prev_nes_clk.Q, SNES_to_NES) (snes_button_s<7>.Q, SNES_to_NES) 
+          (N_PZ_255, SNES_to_NES)
+  --1--> (nes_shift<7>.T, SNES_to_NES) 
+N_PZ_227,net=SNES_to_NES: PINT ( nes_shift<0>.D )
+  <--8--  (nes_shift<0>.Q, SNES_to_NES) (nes_shift<1>.Q, SNES_to_NES) 
+          (nes_clk_s.Q, SNES_to_NES) (ab_mask<0>.Q, SNES_to_NES) 
+          (prev_nes_clk.Q, SNES_to_NES) (snes_button_s<10>.Q, SNES_to_NES) 
+          (snes_button_s<8>.Q, SNES_to_NES) (N_PZ_255, SNES_to_NES)
+  --1--> (nes_shift<0>.D, SNES_to_NES) 
+N_PZ_228,net=SNES_to_NES: PINT ( nes_shift<1>.D )
+  <--8--  (nes_shift<1>.Q, SNES_to_NES) (nes_shift<2>.Q, SNES_to_NES) 
+          (nes_clk_s.Q, SNES_to_NES) (ab_mask<1>.Q, SNES_to_NES) 
+          (prev_nes_clk.Q, SNES_to_NES) (snes_button_s<0>.Q, SNES_to_NES) 
+          (snes_button_s<11>.Q, SNES_to_NES) (N_PZ_255, SNES_to_NES)
+  --1--> (nes_shift<1>.D, SNES_to_NES) 
+nes_shift<7>.T,net=SNES_to_NES: PO
+  <--1--  (N_PZ_187, SNES_to_NES)
+  --0--> 
+nes_shift<0>.D,net=SNES_to_NES: PO
+  <--1--  (N_PZ_227, SNES_to_NES)
+  --0--> 
+nes_shift<1>.D,net=SNES_to_NES: PO
+  <--1--  (N_PZ_228, SNES_to_NES)
+  --0--> 
+N_PZ_255,net=SNES_to_NES: INT
+  <--2--  (nes_latch_s.Q, SNES_to_NES) (prev_nes_latch.Q, SNES_to_NES)
+  --8--> (N_PZ_181, SNES_to_NES) (N_PZ_182, SNES_to_NES) (N_PZ_183, SNES_to_NES)  
+         (N_PZ_184, SNES_to_NES) (N_PZ_185, SNES_to_NES) (N_PZ_187, SNES_to_NES)  
+         (N_PZ_227, SNES_to_NES) (N_PZ_228, SNES_to_NES) 

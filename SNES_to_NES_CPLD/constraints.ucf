@@ -1,0 +1,20 @@
+
+NET "clk" LOC = "P1" | TNM_NET = sys_clk; # Bank = 2, Signal name = UCLK
+TIMESPEC TS_sys_clk = PERIOD sys_clk 8000 khz;
+
+NET "snes_button<0>" LOC = "P4";
+NET "snes_button<1>" LOC = "P5";
+NET "snes_button<2>" LOC = "P6";
+NET "snes_button<3>" LOC = "P7";
+NET "snes_button<4>" LOC = "P8";
+NET "snes_button<5>" LOC = "P9";
+NET "snes_button<6>" LOC = "P10";
+NET "snes_button<7>" LOC = "P24";
+NET "snes_button<8>" LOC = "P25";
+NET "snes_button<9>" LOC = "P26";
+NET "snes_button<10>" LOC = "P27";
+NET "snes_button<11>" LOC = "P28";
+
+NET "nes_latch" LOC = "P34";
+NET "nes_clk" LOC = "P35";
+NET "nes_data_q" LOC = "P36";

@@ -1,0 +1,549 @@
+" XPLAOPT Version 9.99.99.99
+" Created on Wed May  3 15:49:50 2023
+" 68 Mcells, 95 PLApts, 17 Levels, 128 Fanins
+" XPLAOPT -run s -it b -i SNES_to_NES.blx -dev XC2C64A-7QFG48 -reg -xor a -mode 
+"         1 -th 28 -fi 32 -bfi 38 -pre keep -unused keeper -terminate keeper -no_output_files 
+MODULE SNES_to_NES
+
+	clk  pin 1 ; 
+ 	nes_clk  pin 35 ; 
+ 	nes_data_q  pin 36 ;  " 1 pt.
+ 	nes_latch  pin 34 ; 
+ 	snes_button<0>  pin 4 ; 
+ 	snes_button<10>  pin 27 ; 
+ 	snes_button<11>  pin 28 ; 
+ 	snes_button<1>  pin 5 ; 
+ 	snes_button<2>  pin 6 ; 
+ 	snes_button<3>  pin 7 ; 
+ 	snes_button<4>  pin 8 ; 
+ 	snes_button<5>  pin 9 ; 
+ 	snes_button<6>  pin 10 ; 
+ 	snes_button<7>  pin 24 ; 
+ 	snes_button<8>  pin 25 ; 
+ 	snes_button<9>  pin 26 ; 
+ 
+
+	N_PZ_255  node istype 'collapse';  " 2 pt.
+ 	N_PZ_256  node istype 'collapse';  " 2 pt.
+ 	N_PZ_257  node istype 'collapse';  " 1 pt.
+ 	N_PZ_258  node istype 'collapse';  " 1 pt.
+ 	N_PZ_259  node istype 'collapse';  " 1 pt.
+ 	N_PZ_260  node istype 'collapse';  " 1 pt.
+ 	N_PZ_261  node istype 'collapse';  " 1 pt.
+ 	N_PZ_262  node istype 'collapse';  " 1 pt.
+ 	N_PZ_263  node istype 'collapse';  " 1 pt.
+ 	N_PZ_264  node istype 'collapse';  " 1 pt.
+ 	N_PZ_265  node istype 'collapse';  " 1 pt.
+ 	N_PZ_266  node istype 'collapse';  " 1 pt.
+ 	N_PZ_267  node istype 'collapse';  " 1 pt.
+ 	N_PZ_268  node istype 'collapse';  " 1 pt.
+ 	N_PZ_269  node istype 'collapse';  " 1 pt.
+ 	N_PZ_270  node istype 'collapse';  " 1 pt.
+ 	N_PZ_271  node istype 'collapse';  " 1 pt.
+ 	N_PZ_272  node istype 'collapse';  " 2 pt.
+ 	N_PZ_273  node istype 'collapse';  " 2 pt.
+ 	N_PZ_274  node istype 'collapse';  " 1 pt.
+ 	N_PZ_275  node istype 'collapse';  " 1 pt.
+ 	ab_mask<0>  node ;  " 1 pt.
+ 	ab_mask<1>  node ;  " 1 pt.
+ 	nes_clk_s  node ;  " 1 pt.
+ 	nes_latch_s  node ;  " 1 pt.
+ 	nes_shift<0>  node ;  " 4 pt.
+ 	nes_shift<1>  node ;  " 4 pt.
+ 	nes_shift<2>  node ;  " 4 pt.
+ 	nes_shift<3>  node ;  " 4 pt.
+ 	nes_shift<4>  node ;  " 4 pt.
+ 	nes_shift<5>  node ;  " 4 pt.
+ 	nes_shift<6>  node ;  " 4 pt.
+ 	nes_shift<7>  node ;  " 3 pt.
+ 	prev_nes_clk  node ;  " 1 pt.
+ 	prev_nes_latch  node ;  " 1 pt.
+ 	snes_button_s<0>  node ;  " 1 pt.
+ 	snes_button_s<10>  node ;  " 1 pt.
+ 	snes_button_s<11>  node ;  " 1 pt.
+ 	snes_button_s<1>  node ;  " 1 pt.
+ 	snes_button_s<2>  node ;  " 1 pt.
+ 	snes_button_s<3>  node ;  " 1 pt.
+ 	snes_button_s<4>  node ;  " 1 pt.
+ 	snes_button_s<5>  node ;  " 1 pt.
+ 	snes_button_s<6>  node ;  " 1 pt.
+ 	snes_button_s<7>  node ;  " 1 pt.
+ 	snes_button_s<8>  node ;  " 1 pt.
+ 	snes_button_s<9>  node ;  " 1 pt.
+ 	timer<0>  node ;  " 1 pt.
+ 	timer<10>  node ;  " 1 pt.
+ 	timer<11>  node ;  " 1 pt.
+ 	timer<12>  node ;  " 1 pt.
+ 	timer<13>  node ;  " 1 pt.
+ 	timer<14>  node ;  " 1 pt.
+ 	timer<15>  node ;  " 1 pt.
+ 	timer<16>  node ;  " 1 pt.
+ 	timer<17>  node ;  " 1 pt.
+ 	timer<18>  node ;  " 1 pt.
+ 	timer<19>  node ;  " 1 pt.
+ 	timer<1>  node ;  " 1 pt.
+ 	timer<2>  node ;  " 1 pt.
+ 	timer<3>  node ;  " 1 pt.
+ 	timer<4>  node ;  " 1 pt.
+ 	timer<5>  node ;  " 1 pt.
+ 	timer<6>  node ;  " 1 pt.
+ 	timer<7>  node ;  " 1 pt.
+ 	timer<8>  node ;  " 1 pt.
+ 	timer<9>  node ;  " 1 pt.
+ 
+
+xpla property 'USER_SLEW_RATE nes_data_q '; 
+xpla property 'unused_keeper'; 
+xpla property 'timespec  nes_shift<1>.Q nes_shift<0>.D 23.000000'; 
+xpla property 'timespec  nes_latch_s.Q nes_shift<0>.D 23.000000'; 
+xpla property 'timespec  prev_nes_latch.Q nes_shift<0>.D 23.000000'; 
+xpla property 'timespec  snes_button_s<10>.Q nes_shift<0>.D 23.000000'; 
+xpla property 'timespec  snes_button_s<8>.Q nes_shift<0>.D 23.000000'; 
+xpla property 'timespec  ab_mask<0>.Q nes_shift<0>.D 23.000000'; 
+xpla property 'timespec  nes_latch_s.Q nes_shift<0>.CE 23.000000'; 
+xpla property 'timespec  prev_nes_latch.Q nes_shift<0>.CE 23.000000'; 
+xpla property 'timespec  nes_clk_s.Q nes_shift<0>.CE 23.000000'; 
+xpla property 'timespec  prev_nes_clk.Q nes_shift<0>.CE 23.000000'; 
+xpla property 'timespec  nes_shift<2>.Q nes_shift<1>.D 23.000000'; 
+xpla property 'timespec  nes_latch_s.Q nes_shift<1>.D 23.000000'; 
+xpla property 'timespec  prev_nes_latch.Q nes_shift<1>.D 23.000000'; 
+xpla property 'timespec  snes_button_s<0>.Q nes_shift<1>.D 23.000000'; 
+xpla property 'timespec  snes_button_s<11>.Q nes_shift<1>.D 23.000000'; 
+xpla property 'timespec  ab_mask<1>.Q nes_shift<1>.D 23.000000'; 
+xpla property 'timespec  nes_latch_s.Q nes_shift<1>.CE 23.000000'; 
+xpla property 'timespec  prev_nes_latch.Q nes_shift<1>.CE 23.000000'; 
+xpla property 'timespec  nes_clk_s.Q nes_shift<1>.CE 23.000000'; 
+xpla property 'timespec  prev_nes_clk.Q nes_shift<1>.CE 23.000000'; 
+xpla property 'timespec  nes_latch_s.Q nes_shift<2>.D 23.000000'; 
+xpla property 'timespec  prev_nes_latch.Q nes_shift<2>.D 23.000000'; 
+xpla property 'timespec  snes_button_s<2>.Q nes_shift<2>.D 23.000000'; 
+xpla property 'timespec  nes_shift<3>.Q nes_shift<2>.D 23.000000'; 
+xpla property 'timespec  nes_latch_s.Q nes_shift<2>.CE 23.000000'; 
+xpla property 'timespec  prev_nes_latch.Q nes_shift<2>.CE 23.000000'; 
+xpla property 'timespec  nes_clk_s.Q nes_shift<2>.CE 23.000000'; 
+xpla property 'timespec  prev_nes_clk.Q nes_shift<2>.CE 23.000000'; 
+xpla property 'timespec  nes_latch_s.Q nes_shift<3>.D 23.000000'; 
+xpla property 'timespec  prev_nes_latch.Q nes_shift<3>.D 23.000000'; 
+xpla property 'timespec  snes_button_s<3>.Q nes_shift<3>.D 23.000000'; 
+xpla property 'timespec  nes_shift<4>.Q nes_shift<3>.D 23.000000'; 
+xpla property 'timespec  nes_latch_s.Q nes_shift<3>.CE 23.000000'; 
+xpla property 'timespec  prev_nes_latch.Q nes_shift<3>.CE 23.000000'; 
+xpla property 'timespec  nes_clk_s.Q nes_shift<3>.CE 23.000000'; 
+xpla property 'timespec  prev_nes_clk.Q nes_shift<3>.CE 23.000000'; 
+xpla property 'timespec  nes_latch_s.Q nes_shift<4>.D 23.000000'; 
+xpla property 'timespec  prev_nes_latch.Q nes_shift<4>.D 23.000000'; 
+xpla property 'timespec  snes_button_s<4>.Q nes_shift<4>.D 23.000000'; 
+xpla property 'timespec  nes_shift<5>.Q nes_shift<4>.D 23.000000'; 
+xpla property 'timespec  nes_latch_s.Q nes_shift<4>.CE 23.000000'; 
+xpla property 'timespec  prev_nes_latch.Q nes_shift<4>.CE 23.000000'; 
+xpla property 'timespec  nes_clk_s.Q nes_shift<4>.CE 23.000000'; 
+xpla property 'timespec  prev_nes_clk.Q nes_shift<4>.CE 23.000000'; 
+xpla property 'timespec  nes_latch_s.Q nes_shift<5>.D 23.000000'; 
+xpla property 'timespec  prev_nes_latch.Q nes_shift<5>.D 23.000000'; 
+xpla property 'timespec  snes_button_s<5>.Q nes_shift<5>.D 23.000000'; 
+xpla property 'timespec  nes_shift<6>.Q nes_shift<5>.D 23.000000'; 
+xpla property 'timespec  nes_latch_s.Q nes_shift<5>.CE 23.000000'; 
+xpla property 'timespec  prev_nes_latch.Q nes_shift<5>.CE 23.000000'; 
+xpla property 'timespec  nes_clk_s.Q nes_shift<5>.CE 23.000000'; 
+xpla property 'timespec  prev_nes_clk.Q nes_shift<5>.CE 23.000000'; 
+xpla property 'timespec  nes_latch_s.Q nes_shift<6>.D 23.000000'; 
+xpla property 'timespec  prev_nes_latch.Q nes_shift<6>.D 23.000000'; 
+xpla property 'timespec  snes_button_s<6>.Q nes_shift<6>.D 23.000000'; 
+xpla property 'timespec  nes_shift<7>.Q nes_shift<6>.D 23.000000'; 
+xpla property 'timespec  nes_latch_s.Q nes_shift<6>.CE 23.000000'; 
+xpla property 'timespec  prev_nes_latch.Q nes_shift<6>.CE 23.000000'; 
+xpla property 'timespec  nes_clk_s.Q nes_shift<6>.CE 23.000000'; 
+xpla property 'timespec  prev_nes_clk.Q nes_shift<6>.CE 23.000000'; 
+xpla property 'timespec  nes_latch_s.Q nes_shift<7>.D 23.000000'; 
+xpla property 'timespec  prev_nes_latch.Q nes_shift<7>.D 23.000000'; 
+xpla property 'timespec  snes_button_s<7>.Q nes_shift<7>.D 23.000000'; 
+xpla property 'timespec  nes_latch_s.Q nes_shift<7>.CE 23.000000'; 
+xpla property 'timespec  prev_nes_latch.Q nes_shift<7>.CE 23.000000'; 
+xpla property 'timespec  nes_clk_s.Q nes_shift<7>.CE 23.000000'; 
+xpla property 'timespec  prev_nes_clk.Q nes_shift<7>.CE 23.000000'; 
+xpla property 'timespec  timer<0>.Q timer<0>.D 23.000000'; 
+xpla property 'timespec  timer<18>.Q timer<19>.D 23.000000'; 
+xpla property 'timespec  timer<17>.Q timer<19>.D 23.000000'; 
+xpla property 'timespec  timer<16>.Q timer<19>.D 23.000000'; 
+xpla property 'timespec  timer<15>.Q timer<19>.D 23.000000'; 
+xpla property 'timespec  timer<14>.Q timer<19>.D 23.000000'; 
+xpla property 'timespec  timer<13>.Q timer<19>.D 23.000000'; 
+xpla property 'timespec  timer<12>.Q timer<19>.D 23.000000'; 
+xpla property 'timespec  timer<11>.Q timer<19>.D 23.000000'; 
+xpla property 'timespec  timer<10>.Q timer<19>.D 23.000000'; 
+xpla property 'timespec  timer<9>.Q timer<19>.D 23.000000'; 
+xpla property 'timespec  timer<8>.Q timer<19>.D 23.000000'; 
+xpla property 'timespec  timer<7>.Q timer<19>.D 23.000000'; 
+xpla property 'timespec  timer<6>.Q timer<19>.D 23.000000'; 
+xpla property 'timespec  timer<5>.Q timer<19>.D 23.000000'; 
+xpla property 'timespec  timer<4>.Q timer<19>.D 23.000000'; 
+xpla property 'timespec  timer<3>.Q timer<19>.D 23.000000'; 
+xpla property 'timespec  timer<2>.Q timer<19>.D 23.000000'; 
+xpla property 'timespec  timer<0>.Q timer<19>.D 23.000000'; 
+xpla property 'timespec  timer<1>.Q timer<19>.D 23.000000'; 
+xpla property 'timespec  timer<19>.Q timer<19>.D 23.000000'; 
+xpla property 'timespec  timer<9>.Q timer<10>.D 23.000000'; 
+xpla property 'timespec  timer<8>.Q timer<10>.D 23.000000'; 
+xpla property 'timespec  timer<7>.Q timer<10>.D 23.000000'; 
+xpla property 'timespec  timer<6>.Q timer<10>.D 23.000000'; 
+xpla property 'timespec  timer<5>.Q timer<10>.D 23.000000'; 
+xpla property 'timespec  timer<4>.Q timer<10>.D 23.000000'; 
+xpla property 'timespec  timer<3>.Q timer<10>.D 23.000000'; 
+xpla property 'timespec  timer<2>.Q timer<10>.D 23.000000'; 
+xpla property 'timespec  timer<0>.Q timer<10>.D 23.000000'; 
+xpla property 'timespec  timer<1>.Q timer<10>.D 23.000000'; 
+xpla property 'timespec  timer<10>.Q timer<10>.D 23.000000'; 
+xpla property 'timespec  timer<10>.Q timer<11>.D 23.000000'; 
+xpla property 'timespec  timer<9>.Q timer<11>.D 23.000000'; 
+xpla property 'timespec  timer<8>.Q timer<11>.D 23.000000'; 
+xpla property 'timespec  timer<7>.Q timer<11>.D 23.000000'; 
+xpla property 'timespec  timer<6>.Q timer<11>.D 23.000000'; 
+xpla property 'timespec  timer<5>.Q timer<11>.D 23.000000'; 
+xpla property 'timespec  timer<4>.Q timer<11>.D 23.000000'; 
+xpla property 'timespec  timer<3>.Q timer<11>.D 23.000000'; 
+xpla property 'timespec  timer<2>.Q timer<11>.D 23.000000'; 
+xpla property 'timespec  timer<0>.Q timer<11>.D 23.000000'; 
+xpla property 'timespec  timer<1>.Q timer<11>.D 23.000000'; 
+xpla property 'timespec  timer<11>.Q timer<11>.D 23.000000'; 
+xpla property 'timespec  timer<11>.Q timer<12>.D 23.000000'; 
+xpla property 'timespec  timer<10>.Q timer<12>.D 23.000000'; 
+xpla property 'timespec  timer<9>.Q timer<12>.D 23.000000'; 
+xpla property 'timespec  timer<8>.Q timer<12>.D 23.000000'; 
+xpla property 'timespec  timer<7>.Q timer<12>.D 23.000000'; 
+xpla property 'timespec  timer<6>.Q timer<12>.D 23.000000'; 
+xpla property 'timespec  timer<5>.Q timer<12>.D 23.000000'; 
+xpla property 'timespec  timer<4>.Q timer<12>.D 23.000000'; 
+xpla property 'timespec  timer<3>.Q timer<12>.D 23.000000'; 
+xpla property 'timespec  timer<2>.Q timer<12>.D 23.000000'; 
+xpla property 'timespec  timer<0>.Q timer<12>.D 23.000000'; 
+xpla property 'timespec  timer<1>.Q timer<12>.D 23.000000'; 
+xpla property 'timespec  timer<12>.Q timer<12>.D 23.000000'; 
+xpla property 'timespec  timer<12>.Q timer<13>.D 23.000000'; 
+xpla property 'timespec  timer<11>.Q timer<13>.D 23.000000'; 
+xpla property 'timespec  timer<10>.Q timer<13>.D 23.000000'; 
+xpla property 'timespec  timer<9>.Q timer<13>.D 23.000000'; 
+xpla property 'timespec  timer<8>.Q timer<13>.D 23.000000'; 
+xpla property 'timespec  timer<7>.Q timer<13>.D 23.000000'; 
+xpla property 'timespec  timer<6>.Q timer<13>.D 23.000000'; 
+xpla property 'timespec  timer<5>.Q timer<13>.D 23.000000'; 
+xpla property 'timespec  timer<4>.Q timer<13>.D 23.000000'; 
+xpla property 'timespec  timer<3>.Q timer<13>.D 23.000000'; 
+xpla property 'timespec  timer<2>.Q timer<13>.D 23.000000'; 
+xpla property 'timespec  timer<0>.Q timer<13>.D 23.000000'; 
+xpla property 'timespec  timer<1>.Q timer<13>.D 23.000000'; 
+xpla property 'timespec  timer<13>.Q timer<13>.D 23.000000'; 
+xpla property 'timespec  timer<13>.Q timer<14>.D 23.000000'; 
+xpla property 'timespec  timer<12>.Q timer<14>.D 23.000000'; 
+xpla property 'timespec  timer<11>.Q timer<14>.D 23.000000'; 
+xpla property 'timespec  timer<10>.Q timer<14>.D 23.000000'; 
+xpla property 'timespec  timer<9>.Q timer<14>.D 23.000000'; 
+xpla property 'timespec  timer<8>.Q timer<14>.D 23.000000'; 
+xpla property 'timespec  timer<7>.Q timer<14>.D 23.000000'; 
+xpla property 'timespec  timer<6>.Q timer<14>.D 23.000000'; 
+xpla property 'timespec  timer<5>.Q timer<14>.D 23.000000'; 
+xpla property 'timespec  timer<4>.Q timer<14>.D 23.000000'; 
+xpla property 'timespec  timer<3>.Q timer<14>.D 23.000000'; 
+xpla property 'timespec  timer<2>.Q timer<14>.D 23.000000'; 
+xpla property 'timespec  timer<0>.Q timer<14>.D 23.000000'; 
+xpla property 'timespec  timer<1>.Q timer<14>.D 23.000000'; 
+xpla property 'timespec  timer<14>.Q timer<14>.D 23.000000'; 
+xpla property 'timespec  timer<14>.Q timer<15>.D 23.000000'; 
+xpla property 'timespec  timer<13>.Q timer<15>.D 23.000000'; 
+xpla property 'timespec  timer<12>.Q timer<15>.D 23.000000'; 
+xpla property 'timespec  timer<11>.Q timer<15>.D 23.000000'; 
+xpla property 'timespec  timer<10>.Q timer<15>.D 23.000000'; 
+xpla property 'timespec  timer<9>.Q timer<15>.D 23.000000'; 
+xpla property 'timespec  timer<8>.Q timer<15>.D 23.000000'; 
+xpla property 'timespec  timer<7>.Q timer<15>.D 23.000000'; 
+xpla property 'timespec  timer<6>.Q timer<15>.D 23.000000'; 
+xpla property 'timespec  timer<5>.Q timer<15>.D 23.000000'; 
+xpla property 'timespec  timer<4>.Q timer<15>.D 23.000000'; 
+xpla property 'timespec  timer<3>.Q timer<15>.D 23.000000'; 
+xpla property 'timespec  timer<2>.Q timer<15>.D 23.000000'; 
+xpla property 'timespec  timer<0>.Q timer<15>.D 23.000000'; 
+xpla property 'timespec  timer<1>.Q timer<15>.D 23.000000'; 
+xpla property 'timespec  timer<15>.Q timer<15>.D 23.000000'; 
+xpla property 'timespec  timer<15>.Q timer<16>.D 23.000000'; 
+xpla property 'timespec  timer<14>.Q timer<16>.D 23.000000'; 
+xpla property 'timespec  timer<13>.Q timer<16>.D 23.000000'; 
+xpla property 'timespec  timer<12>.Q timer<16>.D 23.000000'; 
+xpla property 'timespec  timer<11>.Q timer<16>.D 23.000000'; 
+xpla property 'timespec  timer<10>.Q timer<16>.D 23.000000'; 
+xpla property 'timespec  timer<9>.Q timer<16>.D 23.000000'; 
+xpla property 'timespec  timer<8>.Q timer<16>.D 23.000000'; 
+xpla property 'timespec  timer<7>.Q timer<16>.D 23.000000'; 
+xpla property 'timespec  timer<6>.Q timer<16>.D 23.000000'; 
+xpla property 'timespec  timer<5>.Q timer<16>.D 23.000000'; 
+xpla property 'timespec  timer<4>.Q timer<16>.D 23.000000'; 
+xpla property 'timespec  timer<3>.Q timer<16>.D 23.000000'; 
+xpla property 'timespec  timer<2>.Q timer<16>.D 23.000000'; 
+xpla property 'timespec  timer<0>.Q timer<16>.D 23.000000'; 
+xpla property 'timespec  timer<1>.Q timer<16>.D 23.000000'; 
+xpla property 'timespec  timer<16>.Q timer<16>.D 23.000000'; 
+xpla property 'timespec  timer<16>.Q timer<17>.D 23.000000'; 
+xpla property 'timespec  timer<15>.Q timer<17>.D 23.000000'; 
+xpla property 'timespec  timer<14>.Q timer<17>.D 23.000000'; 
+xpla property 'timespec  timer<13>.Q timer<17>.D 23.000000'; 
+xpla property 'timespec  timer<12>.Q timer<17>.D 23.000000'; 
+xpla property 'timespec  timer<11>.Q timer<17>.D 23.000000'; 
+xpla property 'timespec  timer<10>.Q timer<17>.D 23.000000'; 
+xpla property 'timespec  timer<9>.Q timer<17>.D 23.000000'; 
+xpla property 'timespec  timer<8>.Q timer<17>.D 23.000000'; 
+xpla property 'timespec  timer<7>.Q timer<17>.D 23.000000'; 
+xpla property 'timespec  timer<6>.Q timer<17>.D 23.000000'; 
+xpla property 'timespec  timer<5>.Q timer<17>.D 23.000000'; 
+xpla property 'timespec  timer<4>.Q timer<17>.D 23.000000'; 
+xpla property 'timespec  timer<3>.Q timer<17>.D 23.000000'; 
+xpla property 'timespec  timer<2>.Q timer<17>.D 23.000000'; 
+xpla property 'timespec  timer<0>.Q timer<17>.D 23.000000'; 
+xpla property 'timespec  timer<1>.Q timer<17>.D 23.000000'; 
+xpla property 'timespec  timer<17>.Q timer<17>.D 23.000000'; 
+xpla property 'timespec  timer<17>.Q timer<18>.D 23.000000'; 
+xpla property 'timespec  timer<16>.Q timer<18>.D 23.000000'; 
+xpla property 'timespec  timer<15>.Q timer<18>.D 23.000000'; 
+xpla property 'timespec  timer<14>.Q timer<18>.D 23.000000'; 
+xpla property 'timespec  timer<13>.Q timer<18>.D 23.000000'; 
+xpla property 'timespec  timer<12>.Q timer<18>.D 23.000000'; 
+xpla property 'timespec  timer<11>.Q timer<18>.D 23.000000'; 
+xpla property 'timespec  timer<10>.Q timer<18>.D 23.000000'; 
+xpla property 'timespec  timer<9>.Q timer<18>.D 23.000000'; 
+xpla property 'timespec  timer<8>.Q timer<18>.D 23.000000'; 
+xpla property 'timespec  timer<7>.Q timer<18>.D 23.000000'; 
+xpla property 'timespec  timer<6>.Q timer<18>.D 23.000000'; 
+xpla property 'timespec  timer<5>.Q timer<18>.D 23.000000'; 
+xpla property 'timespec  timer<4>.Q timer<18>.D 23.000000'; 
+xpla property 'timespec  timer<3>.Q timer<18>.D 23.000000'; 
+xpla property 'timespec  timer<2>.Q timer<18>.D 23.000000'; 
+xpla property 'timespec  timer<0>.Q timer<18>.D 23.000000'; 
+xpla property 'timespec  timer<1>.Q timer<18>.D 23.000000'; 
+xpla property 'timespec  timer<18>.Q timer<18>.D 23.000000'; 
+xpla property 'timespec  timer<0>.Q timer<1>.D 23.000000'; 
+xpla property 'timespec  timer<1>.Q timer<1>.D 23.000000'; 
+xpla property 'timespec  timer<0>.Q timer<2>.D 23.000000'; 
+xpla property 'timespec  timer<1>.Q timer<2>.D 23.000000'; 
+xpla property 'timespec  timer<2>.Q timer<2>.D 23.000000'; 
+xpla property 'timespec  timer<2>.Q timer<3>.D 23.000000'; 
+xpla property 'timespec  timer<0>.Q timer<3>.D 23.000000'; 
+xpla property 'timespec  timer<1>.Q timer<3>.D 23.000000'; 
+xpla property 'timespec  timer<3>.Q timer<3>.D 23.000000'; 
+xpla property 'timespec  timer<3>.Q timer<4>.D 23.000000'; 
+xpla property 'timespec  timer<2>.Q timer<4>.D 23.000000'; 
+xpla property 'timespec  timer<0>.Q timer<4>.D 23.000000'; 
+xpla property 'timespec  timer<1>.Q timer<4>.D 23.000000'; 
+xpla property 'timespec  timer<4>.Q timer<4>.D 23.000000'; 
+xpla property 'timespec  timer<4>.Q timer<5>.D 23.000000'; 
+xpla property 'timespec  timer<3>.Q timer<5>.D 23.000000'; 
+xpla property 'timespec  timer<2>.Q timer<5>.D 23.000000'; 
+xpla property 'timespec  timer<0>.Q timer<5>.D 23.000000'; 
+xpla property 'timespec  timer<1>.Q timer<5>.D 23.000000'; 
+xpla property 'timespec  timer<5>.Q timer<5>.D 23.000000'; 
+xpla property 'timespec  timer<5>.Q timer<6>.D 23.000000'; 
+xpla property 'timespec  timer<4>.Q timer<6>.D 23.000000'; 
+xpla property 'timespec  timer<3>.Q timer<6>.D 23.000000'; 
+xpla property 'timespec  timer<2>.Q timer<6>.D 23.000000'; 
+xpla property 'timespec  timer<0>.Q timer<6>.D 23.000000'; 
+xpla property 'timespec  timer<1>.Q timer<6>.D 23.000000'; 
+xpla property 'timespec  timer<6>.Q timer<6>.D 23.000000'; 
+xpla property 'timespec  timer<6>.Q timer<7>.D 23.000000'; 
+xpla property 'timespec  timer<5>.Q timer<7>.D 23.000000'; 
+xpla property 'timespec  timer<4>.Q timer<7>.D 23.000000'; 
+xpla property 'timespec  timer<3>.Q timer<7>.D 23.000000'; 
+xpla property 'timespec  timer<2>.Q timer<7>.D 23.000000'; 
+xpla property 'timespec  timer<0>.Q timer<7>.D 23.000000'; 
+xpla property 'timespec  timer<1>.Q timer<7>.D 23.000000'; 
+xpla property 'timespec  timer<7>.Q timer<7>.D 23.000000'; 
+xpla property 'timespec  timer<7>.Q timer<8>.D 23.000000'; 
+xpla property 'timespec  timer<6>.Q timer<8>.D 23.000000'; 
+xpla property 'timespec  timer<5>.Q timer<8>.D 23.000000'; 
+xpla property 'timespec  timer<4>.Q timer<8>.D 23.000000'; 
+xpla property 'timespec  timer<3>.Q timer<8>.D 23.000000'; 
+xpla property 'timespec  timer<2>.Q timer<8>.D 23.000000'; 
+xpla property 'timespec  timer<0>.Q timer<8>.D 23.000000'; 
+xpla property 'timespec  timer<1>.Q timer<8>.D 23.000000'; 
+xpla property 'timespec  timer<8>.Q timer<8>.D 23.000000'; 
+xpla property 'timespec  timer<8>.Q timer<9>.D 23.000000'; 
+xpla property 'timespec  timer<7>.Q timer<9>.D 23.000000'; 
+xpla property 'timespec  timer<6>.Q timer<9>.D 23.000000'; 
+xpla property 'timespec  timer<5>.Q timer<9>.D 23.000000'; 
+xpla property 'timespec  timer<4>.Q timer<9>.D 23.000000'; 
+xpla property 'timespec  timer<3>.Q timer<9>.D 23.000000'; 
+xpla property 'timespec  timer<2>.Q timer<9>.D 23.000000'; 
+xpla property 'timespec  timer<0>.Q timer<9>.D 23.000000'; 
+xpla property 'timespec  timer<1>.Q timer<9>.D 23.000000'; 
+xpla property 'timespec  timer<9>.Q timer<9>.D 23.000000'; 
+xpla property 'timespec  timer<19>.Q ab_mask<0>.D 23.000000'; 
+xpla property 'timespec  snes_button_s<9>.Q ab_mask<0>.D 23.000000'; 
+xpla property 'timespec  timer<19>.Q ab_mask<1>.D 23.000000'; 
+xpla property 'timespec  snes_button_s<1>.Q ab_mask<1>.D 23.000000'; 
+xpla property 'timespec  nes_clk_s.Q prev_nes_clk.D 23.000000'; 
+xpla property 'timespec  nes_latch_s.Q prev_nes_latch.D 23.000000'; 
+xpla property 'timespec  nes_shift<0>.Q nes_data_q.D 23.000000'; 
+xpla property 'IOSTD clk 2 -1';
+xpla property 'IOSTD nes_clk 2 -1';
+xpla property 'IOSTD nes_latch 2 -1';
+xpla property 'IOSTD snes_button<0> 2 -1';
+xpla property 'IOSTD snes_button<10> 2 -1';
+xpla property 'IOSTD snes_button<11> 2 -1';
+xpla property 'IOSTD snes_button<1> 2 -1';
+xpla property 'IOSTD snes_button<2> 2 -1';
+xpla property 'IOSTD snes_button<3> 2 -1';
+xpla property 'IOSTD snes_button<4> 2 -1';
+xpla property 'IOSTD snes_button<5> 2 -1';
+xpla property 'IOSTD snes_button<6> 2 -1';
+xpla property 'IOSTD snes_button<7> 2 -1';
+xpla property 'IOSTD snes_button<8> 2 -1';
+xpla property 'IOSTD snes_button<9> 2 -1';
+xpla property 'IOSTD nes_data_q 2 -1';
+EQUATIONS 
+
+ N_PZ_255 = prev_nes_latch.Q
+      # !nes_latch_s.Q;		"--- [PT=2, FI=2, LVL=1] ---
+ N_PZ_256 = prev_nes_clk.Q
+      # !nes_clk_s.Q;		"--- [PT=2, FI=2, LVL=1] ---
+ N_PZ_257 = timer<0>.Q & timer<1>.Q;		"--- [PT=1, FI=2, LVL=1] ---
+ N_PZ_258 = timer<2>.Q & N_PZ_257;		"--- [PT=1, FI=2, LVL=2] ---
+ N_PZ_259 = timer<3>.Q & N_PZ_258;		"--- [PT=1, FI=2, LVL=3] ---
+ N_PZ_260 = timer<4>.Q & N_PZ_259;		"--- [PT=1, FI=2, LVL=4] ---
+ N_PZ_261 = timer<5>.Q & N_PZ_260;		"--- [PT=1, FI=2, LVL=5] ---
+ N_PZ_262 = N_PZ_255 & !N_PZ_256;		"--- [PT=1, FI=2, LVL=2] ---
+ N_PZ_263 = timer<6>.Q & N_PZ_261;		"--- [PT=1, FI=2, LVL=6] ---
+ N_PZ_264 = timer<7>.Q & N_PZ_263;		"--- [PT=1, FI=2, LVL=7] ---
+ N_PZ_265 = timer<8>.Q & N_PZ_264;		"--- [PT=1, FI=2, LVL=8] ---
+ N_PZ_266 = timer<9>.Q & N_PZ_265;		"--- [PT=1, FI=2, LVL=9] ---
+ N_PZ_267 = timer<10>.Q & N_PZ_266;		"--- [PT=1, FI=2, LVL=10] ---
+ N_PZ_268 = timer<11>.Q & N_PZ_267;		"--- [PT=1, FI=2, LVL=11] ---
+ N_PZ_269 = timer<12>.Q & N_PZ_268;		"--- [PT=1, FI=2, LVL=12] ---
+ N_PZ_270 = timer<13>.Q & N_PZ_269;		"--- [PT=1, FI=2, LVL=13] ---
+ N_PZ_271 = timer<14>.Q & N_PZ_270;		"--- [PT=1, FI=2, LVL=14] ---
+ N_PZ_272 = !snes_button_s<8>.Q
+      # !snes_button_s<10>.Q;		"--- [PT=2, FI=2, LVL=1] ---
+ N_PZ_273 = !snes_button_s<11>.Q
+      # !snes_button_s<0>.Q;		"--- [PT=2, FI=2, LVL=1] ---
+ N_PZ_274 = timer<15>.Q & N_PZ_271;		"--- [PT=1, FI=2, LVL=15] ---
+ N_PZ_275 = timer<16>.Q & N_PZ_274;		"--- [PT=1, FI=2, LVL=16] ---
+ ab_mask<0>.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ ab_mask<0>.D = timer<19>.Q & !snes_button_s<9>.Q
+    ;		"--- [PT=1, FI=2, LVL=1] ---
+ ab_mask<1>.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ ab_mask<1>.D = timer<19>.Q & !snes_button_s<1>.Q
+    ;		"--- [PT=1, FI=2, LVL=1] ---
+ nes_clk_s.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ nes_clk_s.D = nes_clk;		"--- [PT=1, FI=1, LVL=1] ---
+ nes_data_q.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ nes_data_q.D = !nes_shift<0>.Q;		"--- [PT=1, FI=1, LVL=1] ---
+ nes_latch_s.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ nes_latch_s.D = nes_latch;		"--- [PT=1, FI=1, LVL=1] ---
+ nes_shift<0>.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ nes_shift<0>.D = !ab_mask<0>.Q & !N_PZ_255 & !N_PZ_272
+      # ab_mask<0>.Q & !N_PZ_255 & N_PZ_272
+      # nes_shift<0>.Q & N_PZ_255 & N_PZ_256
+      # nes_shift<1>.Q & N_PZ_262;		"--- [PT=4, FI=7, LVL=3] ---
+ nes_shift<1>.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ nes_shift<1>.D = !ab_mask<1>.Q & !N_PZ_255 & !N_PZ_273
+      # ab_mask<1>.Q & !N_PZ_255 & N_PZ_273
+      # nes_shift<1>.Q & N_PZ_255 & N_PZ_256
+      # nes_shift<2>.Q & N_PZ_262;		"--- [PT=4, FI=7, LVL=3] ---
+ nes_shift<2>.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ nes_shift<2>.T = nes_shift<2>.Q & !nes_shift<3>.Q & N_PZ_262
+      # !nes_shift<2>.Q & nes_shift<3>.Q & N_PZ_262
+      # nes_shift<2>.Q & !snes_button_s<2>.Q & !N_PZ_255
+      # !nes_shift<2>.Q & snes_button_s<2>.Q & !N_PZ_255
+    ;		"--- [PT=4, FI=5, LVL=3] ---
+ nes_shift<3>.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ nes_shift<3>.T = nes_shift<3>.Q & !nes_shift<4>.Q & N_PZ_262
+      # !nes_shift<3>.Q & nes_shift<4>.Q & N_PZ_262
+      # nes_shift<3>.Q & !snes_button_s<3>.Q & !N_PZ_255
+      # !nes_shift<3>.Q & snes_button_s<3>.Q & !N_PZ_255
+    ;		"--- [PT=4, FI=5, LVL=3] ---
+ nes_shift<4>.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ nes_shift<4>.T = nes_shift<4>.Q & !nes_shift<5>.Q & N_PZ_262
+      # !nes_shift<4>.Q & nes_shift<5>.Q & N_PZ_262
+      # nes_shift<4>.Q & !snes_button_s<4>.Q & !N_PZ_255
+      # !nes_shift<4>.Q & snes_button_s<4>.Q & !N_PZ_255
+    ;		"--- [PT=4, FI=5, LVL=3] ---
+ nes_shift<5>.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ nes_shift<5>.T = nes_shift<5>.Q & !nes_shift<6>.Q & N_PZ_262
+      # !nes_shift<5>.Q & nes_shift<6>.Q & N_PZ_262
+      # nes_shift<5>.Q & !snes_button_s<5>.Q & !N_PZ_255
+      # !nes_shift<5>.Q & snes_button_s<5>.Q & !N_PZ_255
+    ;		"--- [PT=4, FI=5, LVL=3] ---
+ nes_shift<6>.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ nes_shift<6>.T = nes_shift<6>.Q & !nes_shift<7>.Q & N_PZ_262
+      # !nes_shift<6>.Q & nes_shift<7>.Q & N_PZ_262
+      # nes_shift<6>.Q & !snes_button_s<6>.Q & !N_PZ_255
+      # !nes_shift<6>.Q & snes_button_s<6>.Q & !N_PZ_255
+    ;		"--- [PT=4, FI=5, LVL=3] ---
+ nes_shift<7>.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ nes_shift<7>.T = nes_shift<7>.Q & !snes_button_s<7>.Q & !N_PZ_255
+      # !nes_shift<7>.Q & snes_button_s<7>.Q & !N_PZ_255
+      # nes_shift<7>.Q & N_PZ_262;		"--- [PT=3, FI=4, LVL=3] ---
+ prev_nes_clk.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ prev_nes_clk.D = nes_clk_s.Q;		"--- [PT=1, FI=1, LVL=1] ---
+ prev_nes_latch.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ prev_nes_latch.D = nes_latch_s.Q;		"--- [PT=1, FI=1, LVL=1] ---
+ snes_button_s<0>.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ snes_button_s<0>.D = snes_button<0>;		"--- [PT=1, FI=1, LVL=1] ---
+ snes_button_s<10>.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ snes_button_s<10>.D = snes_button<10>;		"--- [PT=1, FI=1, LVL=1] ---
+ snes_button_s<11>.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ snes_button_s<11>.D = snes_button<11>;		"--- [PT=1, FI=1, LVL=1] ---
+ snes_button_s<1>.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ snes_button_s<1>.D = snes_button<1>;		"--- [PT=1, FI=1, LVL=1] ---
+ snes_button_s<2>.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ snes_button_s<2>.D = snes_button<2>;		"--- [PT=1, FI=1, LVL=1] ---
+ snes_button_s<3>.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ snes_button_s<3>.D = snes_button<3>;		"--- [PT=1, FI=1, LVL=1] ---
+ snes_button_s<4>.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ snes_button_s<4>.D = snes_button<4>;		"--- [PT=1, FI=1, LVL=1] ---
+ snes_button_s<5>.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ snes_button_s<5>.D = snes_button<5>;		"--- [PT=1, FI=1, LVL=1] ---
+ snes_button_s<6>.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ snes_button_s<6>.D = snes_button<6>;		"--- [PT=1, FI=1, LVL=1] ---
+ snes_button_s<7>.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ snes_button_s<7>.D = snes_button<7>;		"--- [PT=1, FI=1, LVL=1] ---
+ snes_button_s<8>.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ snes_button_s<8>.D = snes_button<8>;		"--- [PT=1, FI=1, LVL=1] ---
+ snes_button_s<9>.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ snes_button_s<9>.D = snes_button<9>;		"--- [PT=1, FI=1, LVL=1] ---
+ timer<0>.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ timer<0>.T = 1;
+ timer<10>.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ timer<10>.T = N_PZ_266;		"--- [PT=1, FI=1, LVL=10] ---
+ timer<11>.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ timer<11>.T = N_PZ_267;		"--- [PT=1, FI=1, LVL=11] ---
+ timer<12>.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ timer<12>.T = N_PZ_268;		"--- [PT=1, FI=1, LVL=12] ---
+ timer<13>.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ timer<13>.T = N_PZ_269;		"--- [PT=1, FI=1, LVL=13] ---
+ timer<14>.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ timer<14>.T = N_PZ_270;		"--- [PT=1, FI=1, LVL=14] ---
+ timer<15>.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ timer<15>.T = N_PZ_271;		"--- [PT=1, FI=1, LVL=15] ---
+ timer<16>.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ timer<16>.T = N_PZ_274;		"--- [PT=1, FI=1, LVL=16] ---
+ timer<17>.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ timer<17>.T = N_PZ_275;		"--- [PT=1, FI=1, LVL=17] ---
+ timer<18>.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ timer<18>.T = timer<17>.Q & N_PZ_275;		"--- [PT=1, FI=2, LVL=17] ---
+ timer<19>.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ timer<19>.T = timer<17>.Q & timer<18>.Q & N_PZ_275
+    ;		"--- [PT=1, FI=3, LVL=17] ---
+ timer<1>.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ timer<1>.T = timer<0>.Q;		"--- [PT=1, FI=1, LVL=1] ---
+ timer<2>.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ timer<2>.T = N_PZ_257;		"--- [PT=1, FI=1, LVL=2] ---
+ timer<3>.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ timer<3>.T = N_PZ_258;		"--- [PT=1, FI=1, LVL=3] ---
+ timer<4>.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ timer<4>.T = N_PZ_259;		"--- [PT=1, FI=1, LVL=4] ---
+ timer<5>.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ timer<5>.T = N_PZ_260;		"--- [PT=1, FI=1, LVL=5] ---
+ timer<6>.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ timer<6>.T = N_PZ_261;		"--- [PT=1, FI=1, LVL=6] ---
+ timer<7>.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ timer<7>.T = N_PZ_263;		"--- [PT=1, FI=1, LVL=7] ---
+ timer<8>.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ timer<8>.T = N_PZ_264;		"--- [PT=1, FI=1, LVL=8] ---
+ timer<9>.CLK = clk;		"--- [PT=1, FI=1, LVL=1] ---
+ timer<9>.T = N_PZ_265;		"--- [PT=1, FI=1, LVL=9] ---
+END
