@@ -17,9 +17,9 @@
 // Revision 0.01 - File Created
 // Additional Comments: 
 //	NES button order:
-//		0:A, B, START, SELECT, UP, DOWN, LEFT, 7:RIGHT
+//		0:A, B, SELECT, START, UP, DOWN, LEFT, 7:RIGHT
 //	SNES button order:
-//		0:B, Y, START, SELECT, UP, DOWN, LEFT, RIGHT, A, X, L, 11:R
+//		0:B, Y, SELECT, START, UP, DOWN, LEFT, RIGHT, A, X, L, 11:R
 //////////////////////////////////////////////////////////////////////////////////
 module SNES_to_NES(
 		input wire clk,
